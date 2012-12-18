@@ -51,9 +51,9 @@
 
 \subsection{Einsetzen und Ausrechnen für Dreifachschicht}
 
-Diese Aufgabe habe ich in \emph{Mathematica} gerechnet. Die Datei ist auf \\
-\url{http://uni-bonn.de/~s6mauedi/physik311/} zu finden. Dazu habe ich zuerst
-einige Variablen definiert:
+Diese Aufgabe habe ich in \emph{Mathematica} gerechnet. \footnote{Die Datei ist
+auf \url{http://uni-bonn.de/~s6mauedi/physik311/} zu finden.} Dazu habe ich
+zuerst einige Variablen definiert:
 \begin{gather*}
 	n_0 := 1
 	,\quad
@@ -126,7 +126,25 @@ Daraus bestimme ich $r$:
 
 \subsection{alternierende Folge}
 
-\fehlt
+Mir fehlten Werte für $n_H$ und $n_L$, diese sind auch nicht aus der Rechnung
+herausgefallen wir das $\lambda_0$ in der vorherigen Aufgabe.
+
+Ausgehend von den Variablendeklarationen der vorherigen Teilaufgabe habe ich
+einige geändert:
+\begin{gather*}
+	\delta_j := \pi \\
+	%
+	n_j := \begin{cases}
+		n_H & \frac j2 \notin \Z \\
+		n_L & \frac j2 \in \Z
+	\end{cases}
+\end{gather*}
+
+Der Tensor $\tens M_j$ bleibt wie vorhin, nur dass das neue $n_j$ und
+$\delta_j$ benutzt werden. Dann habe ich durch Ausprobieren so lange $\tens M_2
+\tens M_1$ an den Tensor $\tens P$ gehängt, bis die Reflektivität bei $n_H =
+1.5$ und $n_L = 1.1$ über $0.999$ gestiegen ist. Dafür musste ich $N = 30$
+Schichten benutzen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                    Auflösungsvermögen eines Fernrohrs                     %
