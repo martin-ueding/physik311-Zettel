@@ -2,19 +2,23 @@
 %
 \input{header.tex}
 
-\usepackage{fancyhdr}
+\usepackage{scrpage2}
 \usepackage{tikz}
 
 \newcommand{\themodul}{physik311}
 \newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
 \newcommand{\theuebung}{10}
 
-\pagestyle{fancy}
+\pagestyle{scrheadings}
 
-\fancyfoot[C]{\footnotesize{\thegruppe}}
-\fancyfoot[L]{\footnotesize{Martin Ueding}}
-\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
-\fancyhead[L]{\themodul{} -- Übung \theuebung}
+\cfoot{\footnotesize{\thegruppe}}
+\ifoot{\footnotesize{Martin Ueding}}
+\ofoot{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ohead{\rightmark}
+\chead{}
+\setheadsepline{.4pt}
+\automark{section}
 
 \setcounter{section}{32}
 
