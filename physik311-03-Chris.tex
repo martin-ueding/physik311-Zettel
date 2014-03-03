@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[ngerman]{babel}
+\usepackage[parfill]{parskip}
+\usepackage[math]{iwona}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage{setspace}
+\usepackage{units}
+
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\hypersetup{pdftex=true, colorlinks=true, breaklinks=false, linkcolor=black, menucolor=black, pagecolor=black, urlcolor=darkblue}
+
+\setlength{\columnsep}{2cm}
+
+\newcommand{\arcsinh}{\mathrm{arcsinh}}
+\newcommand{\asinh}{\mathrm{arcsinh}}
+\newcommand{\ergebnis}{\textcolor{red}{\mathrm{Ergebnis}}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac{1}{2}}
+\renewcommand{\d}{\, \mathrm d}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\p}{\, \partial}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thetutor}{Jens Ulitzsch}
+\newcommand{\theuebung}{3}
+
+\pagestyle{fancy}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+\fancyfoot[C]{\footnotesize{Tutor: \thetutor}}
+\fancyfoot[L]{\footnotesize{Christoph Hansen}}
+\fancyfoot[R]{\footnotesize{Seite \thepage}}
+
+
+\title{\themodul{} Übung \theuebung \\ Tutor: \thetutor}
+
+\author{Christoph Hansen \\ {\small \href{mailto:christophhansen@uni-bonn.de}{christophhansen@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Aufgabe 9 Katzenauge}
+
+\includegraphics[scale=1]{Aufgabe_9.png}
+
+Man sieht, das der Winkel $\alpha$ ein Wechselwinkel ist und damit rechts neben dem Winkel $\beta$ nochmal auftaucht. Damit ergibt sich $\alpha + \beta = 90^{\circ}$.
+Der Winkel $\beta$ springt genauso neben das $\alpha$ und es ergeben sich wieder $90^{\circ}$. Man hat also zweimal $90^{\circ}$ und damit $180^{\circ}$, die sich unabhängig vom Einfallswinkel einstellen.
+
+\section*{Aufgabe 10 Phasen- und Gruppengeschwindigkeit}
+
+\subsection*{}
+
+Da ich hier nur eine Phase der Welle betrachte ist der Term $\left(k(\omega)\cdot z - \omega t \right)= const$, deshalb forme ich nach $z$ um:
+\begin{align*}
+z &=  \frac{\omega t}{k(\omega)} + const \\
+\intertext{Da ich einen Ausdruck für die Geschwindigkeit haben möchte leite ich $z$ nach der Zeit ab:} \\
+v_{ph} &= \frac{\omega}{k(\omega)}
+\intertext{Mit der Definition von $k(\omega)$ ergibt sich die gesuchte Relation} \\
+v_{ph} &= \frac{\omega}{\frac{\omega \cdot n(\omega)}{c}} = \frac{c}{n(\omega)}
+\end{align*}
+
+\subsection*{}
+
+Ich verstehe die Gruppengeschwindigkeit als Gesamtgeschwindigkeit der einzelnen Phasen in der Welle. Ich nehme mir also zwei Wellen mit den Kreisfrequenzen $\omega$ und $\omega + \Delta \omega$, sowie der Kreiswellenzahl $k$ und $k + \Delta k$. \\
+Das kann ich jetzt darauf untersuchen, wann die beiden Wellen übereinander liegen:
+\begin{align*}
+kx - \omega t &= \left( k + \Delta k \right)x - \left( \omega + \Delta \omega \right)t \\
+\intertext{einfacher:} \\
+\Delta kx &= \Delta \omega t \\
+\intertext{Bei $t = 0$ stimmen die beiden Wellen überein und etwas später bei $t = \Delta t$ an der Stelle $\Delta x = \Delta t \Delta \omega / \Delta k$.
+Die Wellengruppe hat sich also mit der Geschwindigkeit} \\
+v_G &= \frac{d \omega}{d k}
+\intertext{verschoben.}
+\end{align*}
+
+\section*{Aufgabe 11 Phasen- und Gruppengeschwindigkeit in Medien}
+
+Die Gleichung für die Gruppen- und Phasengeschwindigkeit haben wir ja schon in der vorigen Aufgabe berechnet, wir können die neue Relation für $n(\omega)$ also einfach einsetzten:
+\begin{align*}
+v_{ph} &= \frac{c}{1 + \frac{Ne^2}{2\epsilon_0 m \left( \omega_0^2 - \omega^2 + i \omega \gamma \right)}} \\
+v_g &= \frac{1}{\frac{d k}{d \omega}} = \frac{1}{ \frac{d k}{d \omega} \left( \frac{\omega}{c} \left( 1+\frac{Ne^2}{2\epsilon_0m (\omega_0^2 - \omega + i\omega \gamma) \right) \right)}} \\
+&= \frac{c}{1+\frac{Ne^2(2c\epsilon_0m + 2c\epsilon_0m \omega^2)}{\left(2c\epsilon_0m + \omega \left( i \gamma 2 \epsilon_0m - 2c\epsilon_0 m \omega \right) \right)^2}}
+\end{align*} 
+
+
+
+\section*{Aufgabe 12 Fermatsches Prinzip und Reflexion}
+
+\includegraphics[scale=1]{Aufgabe_12.png}
+
+Für die Kennzeichnung der Strecken bitte die Skizze beachten.
+Der von Punkt $P_1$ kommende Strahl wird im Punkt $A$ reflektiert und läuft dann durch den Punkt $P_2$. \\
+Ich betrachte nun den Weg, den das Licht zurücklegen muss um von Punkt $P_1$ nach $P_2$ zu gelangen. Es ergibt sich dabei:
+\begin{align*}
+s &= \sqrt{a^2+1} + \sqrt{(a-1)^2+1} \\
+\intertext{Davon betrachte ich die zeitliche Ableitung, da ich wissen möchte wo das Minimum liegt} \\
+\frac{ds}{da} &= \frac{2a}{2\sqrt{a^2+1}} - \frac{2(a-1)}{2\sqrt{(a-1)^2+1}} \overset{!}{=} 0 \\
+\intertext{Es gilt also:} \\
+\frac{a}{\sqrt{a^2+1}} &= \frac{a-1}{\sqrt{(a-1)^2+1}} \\
+\intertext{Ich stelle für den Sinus folgende Beziehungen auf:} \\
+\sin(\alpha) &= \frac{a}{\sqrt{a^2+1}} \\
+\sin(\alpha') &= \frac{a-1}{\sqrt{(a-1)^2+1}} 
+\intertext{Diese setzte ich nun ein} \\
+\sin(\alpha) &= \sin(\alpha') \\
+\alpha &= \alpha'
+\end{align*}
+Damit wäre gezeigt, das der Einfallswinkel gleich dem Ausfallswinkel ist.
+
+
+\end{document}
+

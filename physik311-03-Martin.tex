@@ -1,0 +1,189 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{lastpage}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\usetikzlibrary{intersections}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{1.5cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
+\newcommand{\theuebung}{3}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{8}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Reflektor                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reflektor}
+
+In Abbildung \ref{fig:ref} ist leicht zu sehen, dass der alle Winkel zusammen
+sind:
+\[
+	\alpha + \alpha + \del{\half \pi - \alpha} + \del{\half \pi - \alpha} = \pi
+\]
+
+Somit ist es eine Reflektion um $\pi$.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.3\textheight]{Reflektor.pdf}
+	\caption{Skizze zum Reflektor}
+	\label{fig:ref}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Phasen- und Gruppengeschwindigkeit                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Phasen- und Gruppengeschwindigkeit}
+
+\subsection{monochromatische Welle}
+
+Zuerst führe ich die Fouriertransformation aus. Dabei ist das durch die Deltadistribution recht einfach:
+\[
+	E(z, t)
+	= \int_{-\infty}^\infty \dif \omega E_0 \delta\del{\omega - \omega_m} \exp\del{i\del{k(\omega) z - \omega t}}
+	= E_0 \exp\del{i\del{k(\omega_m) z - \omega_m t}}
+\]
+
+Die Phase ist konstant, wenn das Argument der Exponentialfunktion konstant ist. Damit kann ich ableiten:
+\[
+	\dpd{}t \del{k\del{\omega_m} z - \omega t} = 0
+	\quad \Leftrightarrow \quad
+	\dot z = \frac{c}{n\del{\omega_m}}
+\]
+
+Dabei ist $\dot z$ die Phasengeschwindigkeit in $z$-Richtung.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Phasen- und Gruppengeschwindigkeit in Medien                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Phasen- und Gruppengeschwindigkeit in Medien}
+
+Diese Aufgabe lasse ich aus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      fermatsches Prinzip und Relextion                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{fermatsches Prinzip und Relextion}
+
+Hier kann ich einfach die Herleitung für das Brechungsgesetz wiederbenutzen, in dem ich $n_1 = n_2$ setze.
+
+Es soll das Reflektionsgesetz hergeleitet werden:
+\[ \frac{\sin\del{\theta_1}}{\sin\del{\theta_2}} = 1 \]
+
+Angenommen, das Licht beginnt im Punkt $P_1(0, 1)$ und bewegt sich zum Punkt
+$P_2(1, 1)$. Das Medium wird im Punkt $(A, 0)$ gewechselt. Somit ist die Strecke, die das Licht zurücklegen muss:
+\[ \sqrt{1 + A^2} + \sqrt{(1-A)^2 + 1^2} \]
+
+Interessant ist allerdings die Zeit, die das Licht braucht:
+\[ t := \frac 1{c} \sqrt{1 + A^2} + \frac 1{c} \sqrt{(1-A)^2 + 1} \]
+
+Ich kann $A$ und $(1-A)$ auch durch den Sinus ausdrücken:
+\[
+	\sin\del{\theta_1} = \frac{A}{\sqrt{1 + A^2}}
+	, \quad
+	\sin\del{\theta_2} = \frac{1 - A}{\sqrt{1 + (1-A)^2}}
+\]
+
+Da eine extremale Zeit gefunden werden soll, leite ich nach $A$ ab und setze
+gleich $0$:
+%
+\begin{align*}
+\dpd t A &= 0 \\
+\frac{2A}{2 c \sqrt{1+A^2}} - \frac{2(1-A)}{2 c \sqrt{(1-A^2)+1}} &= 0 \\
+\frac{A}{\sqrt{1+A^2}} &= \frac{(1-A)}{\sqrt{(1-A^2)+1}} \\
+1 &= \frac{\frac{(1-A)}{\sqrt{(1-A^2)+1}}}{\frac{A}{\sqrt{1+A^2}}} \\
+\intertext{Nun kann ich die Winkel einsetzen.}
+1 &= \frac{\sin\del{\theta_2}}{\sin\del{\theta_1}}
+\end{align*}
+
+Es ist anschaulich klar, dass dieses Extremum ein Minimum ist. Somit ist die
+letzte Zeile die gesuchte Relation.
+
+Daraus folgt direkt:
+\[ \theta_1 = \theta_2 \]
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
