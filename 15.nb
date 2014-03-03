@@ -1,0 +1,144 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4848,        135]
+NotebookOptionsPosition[      4394,        114]
+NotebookOutlinePosition[      4732,        129]
+CellTagsIndexPosition[      4689,        126]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"psi", "[", "theta_", "]"}], ":=", 
+  RowBox[{"ArcTan", "[", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{"1", "-", 
+     RowBox[{"Cos", "[", "theta", "]"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.560959013303776*^9, 3.560959068264428*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Limit", "[", 
+  RowBox[{
+   RowBox[{"psi", "[", "theta", "]"}], ",", 
+   RowBox[{"theta", "\[Rule]", 
+    RowBox[{"Pi", "/", "2"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.560958247367708*^9, 3.560958254000462*^9}, {
+  3.560958296823584*^9, 3.560958300368434*^9}, {3.5609584090262327`*^9, 
+  3.560958419859129*^9}, {3.560958591040485*^9, 3.560958596465129*^9}, {
+  3.560958701138873*^9, 3.5609587036554823`*^9}, {3.560959021928289*^9, 
+  3.5609590354638567`*^9}}],
+
+Cell[BoxData[
+ FractionBox["\[Pi]", "4"]], "Output",
+ CellChangeTimes->{
+  3.56095825431654*^9, 3.560958300727736*^9, 3.5609584204618*^9, {
+   3.5609585919043083`*^9, 3.560958596884699*^9}, 3.560958704045534*^9, {
+   3.560959048456057*^9, 3.560959070113172*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"psi", "[", "theta", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"Pi", "/", "4"}], ")"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"theta", ",", " ", "0", ",", " ", 
+     RowBox[{"Pi", "/", "2"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.56095831249196*^9, 3.560958369514943*^9}, {
+  3.560958711899952*^9, 3.5609587565577507`*^9}, {3.560959044104925*^9, 
+  3.5609590463182087`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVxX081HcAB/ArxmURdekVk6TUK5bUVol8dhJRqeg5RVdMd+e5KaUXHR1S
+0iVDzNo4qYiXUJJMbiE1HSHPj53H+3o8vzth2x/v19uA5ePkPp9Go+37z/8r
+vVb70P3jGSuz71QZlI6b1Zr+EosVd4HDDc9aXbwsocgxPfdZsB+izNKUFV57
+0cvwpAoErrBvzoie5bqgyTa8LF3gA+YjnaIBLhefXAVrUwQh6A26+PQjNxhO
+3OVNCYLb0H28KC2SexN3xlzy4gWp2AENXX9OMixEDmrWATnIuDeiz07Igu9l
+xzN5vs/RQfvl72OyfHg9d4+Zb1iKpJUqXDJZjLo++wUZrHJsUg6dFjPLcMNU
+Ris4XoGtYfTAsDIR/Iwr7pWmV4OuNzM6zq+E4iwnu9W7BgOaE7t2mr0H69WR
+A7EeYiQwopgy+xqcHa0rLY2sQ9xmm9AnOmLc3FjoI+TXY7NNTrn521rMLy3c
+Gn65EUJ3pqOqxydord/zoT2hCVIXNWaZQQN2p1r/OSJoQejd+KKIF41YRqpt
+QwrbwN8bxDvDbULS26J5Suc7EPZ9vGvJohZY6jHnVp7rRKrGzkPdt1th3KHZ
+c/VCF55Gqd8vWteOrIeLPfP9u5FfkGXN2d+B4LZTtcb8HjQ5T5mMLe2En+W2
+Pb/F9eKS+TtOfF0nFKk2rMHYL+Dv2yKJ43WhxjfJ7eIfEgSLx17NbO+Gud2q
+2dYHfeCkLrQ16e5G5S7zhz8l9+NqRvuhfeE9SM9NNO96PIAof2Zd34ZeLDU0
+YZ/OHMQPLRe3bKrqhXgenbe8eAj0V1dyrby/IJ8eIKypHIaJ0G6D6rcSmCzV
+ZLNEUgh4DduCEyUgMTLG5nqCaGleS69pHwwjIkx92CNw4ChX85/3oetEc5O1
+ZASLVDwCqO392N1bK8/3HkWj2z+0zPJ+XPJ399QeHoXjMaojljkAx4L7DtqB
+Y4h8vL12rWgA0q/sYCXZGHgbtgzzLAfxoOHaM++Acbyz2HrYIXsQCs8dbkHT
+49goaTBeazQEvZk7J/0uT+Clal9hqWAIX+yiq+jKk7gb8FfMuPIw3hhVY0X0
+JAwHX4ym+A2DTRcqGyyQodXW3pSqHUbh76t3vLkjQ6SXkr2HhRQfLCxFTlpT
+SFunMTY/UQqKfd/ZLWYKQRbdeYwxKSoOpB5W16bAOSq5VrafgGVumZERR6E4
+RC00MI3g/PD7yZZ4Csf7o1sH0gl8H7jaLE6kYBakQ3fNIAhZENYZnEJBT+NC
+ue0jguTPlbpOQgo0lSdNS3II6oOOxn4tpJDIE11Le0ngUOQfdLCZAkNi3p4q
+JjjorVzBb6UgHwrvU68jOLYqXru4nUKhc/jrK58Ifr7xIs+oh8K7hfn1RxoJ
+wk/QpNNDFCQCn0dqbQQlilss4SwF30TxoGc/gShbP7eZJgdvt1hcO0BQzcqd
+01SSw9juc4TVEEFzVV3yFVU5Ktu0XJYQAipJt+GAphzO6iVZRRMEc45Za/iL
+5RCKI79ZLSNQUcKFlww53DaFG9+aImBwWFpGy+WIOmXQdVpBoKs/4XpSVw61
+wPf+b6cJVtVez47Vk0P7TclH0xmC9RHLZkT6cixkK2Z/nSUws8jcM20gR9Xt
+64q5OYJ/AaI5fBw=
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0},
+  PlotRange->
+   NCache[{{0, Rational[1, 2] Pi}, {0., 0.9999999897959182}}, {{
+     0, 1.5707963267948966`}, {0., 0.9999999897959182}}],
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{
+  3.560958330788026*^9, 3.5609583628083553`*^9, {3.5609587133359003`*^9, 
+   3.560958756965705*^9}, {3.560959048502287*^9, 3.560959071340459*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{Automatic, 146}, {91, Automatic}},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 278, 7, 30, "Input"],
+Cell[CellGroupData[{
+Cell[860, 31, 490, 10, 30, "Input"],
+Cell[1353, 43, 262, 5, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1652, 53, 459, 12, 30, "Input"],
+Cell[2114, 67, 2264, 44, 242, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
