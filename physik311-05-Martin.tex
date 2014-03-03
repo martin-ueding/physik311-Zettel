@@ -1,0 +1,358 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[thinspace, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{lastpage}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{intersections}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{1.5cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
+\newcommand{\theuebung}{5}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{16}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref{1} & \ref{2} & \ref{3} & $\sum$   \\
+		\hline
+		Punkte & \punkte & \punkte & \punkte & \punkte
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                ABCD-Matrizen                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{ABCD-Matrizen}
+\label 1
+
+\subsection{Zeichnung}
+
+Eine Zeichnung ist in Abbildung \ref{fig:linsen}.
+
+\subsection{ABCD-Matrix des Systems}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\draw (-1, 0) -- (4.5, 0) node[right] {optische Achse};
+
+		\draw[|-|] (0, -1.1) -- ++(3.5, 0) node[below, midway] {$\unit{35}{\centi \meter}$};
+
+		\draw[|-|] (0, 1.1) -- ++(1.0, 0) node[above, midway] {$f_1 = \unit{10}{\centi \meter}$};
+		\draw[|-|] (0, 1.1) -- ++(-1.0, 0) node[above, midway] {$f_1 = \unit{10}{\centi \meter}$};
+
+		\draw[|-|] (3.5, 1.1) -- ++(2.0, 0) node[above, midway] {$f_2 = \unit{20}{\centi \meter}$};
+		\draw[|-|] (3.5, 1.1) -- ++(-2.0, 0) node[above, midway] {$f_2 = \unit{20}{\centi \meter}$};
+
+		\pgfpathmoveto{\pgfpoint{0cm}{-1cm}}
+		\pgfpatharcto{3cm}{3cm}{0}{0}{0}{\pgfpoint{0cm}{1cm}}
+		\pgfusepath{draw}
+
+		\pgfpathmoveto{\pgfpoint{0cm}{-1cm}}
+		\pgfpatharcto{3cm}{3cm}{0}{0}{1}{\pgfpoint{0cm}{1cm}}
+		\pgfusepath{draw}
+
+		\pgfpathmoveto{\pgfpoint{3.5cm}{-1cm}}
+		\pgfpatharcto{5cm}{5cm}{0}{0}{0}{\pgfpoint{3.5cm}{1cm}}
+		\pgfusepath{draw}
+
+		\pgfpathmoveto{\pgfpoint{3.5cm}{-1cm}}
+		\pgfpatharcto{5cm}{5cm}{0}{0}{1}{\pgfpoint{3.5cm}{1cm}}
+		\pgfusepath{draw}
+	\end{tikzpicture}
+	\caption{Skizze zu Aufgabe \ref 1}
+	\label{fig:linsen}
+\end{figure}
+
+Die Matrizen der beiden Linsen und des Weges in der Mitte sind:
+\[
+	\tens A = \begin{pmatrix}
+		1 & 0 \\ - \unit{10}{\reciprocal \meter} & 1
+	\end{pmatrix}
+	,\quad
+	\tens B = \begin{pmatrix}
+		1 & \unit{0.35}\meter \\ 0 & 1
+	\end{pmatrix}
+	,\quad
+	\tens C = \begin{pmatrix}
+		1 & 0 \\ - \unit{5}{\reciprocal \meter} & 1
+	\end{pmatrix}
+\]
+
+Die Matrix $\tens D$ für das Gesamtsystem berechnet sich durch $D^a{}_d :=
+A^a{}_b B^b{}_c C^c{}_d$ (mit Summenkonvention) (Abbildung \ref{fig:penrose})
+zu:
+\[
+	\tens D = \begin{pmatrix}
+		-0.75 & \unit{0.35} \meter \\ \unit{2.5}{\reciprocal \meter} & -2.5
+	\end{pmatrix}
+\]
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\node[shape=rectangle, draw] (A) at (0, 1) {$\tens A$};
+		\node[shape=rectangle, draw] (B) at (0, 0) {$\tens B$};
+		\node[shape=rectangle, draw] (C) at (0, -1) {$\tens C$};
+		\node[shape=rectangle, draw] (D) at (-2, 0) {$\tens D$};
+		\node (e) at (-1, 0) {$=$};
+
+
+		\draw (A) -- (B) -- (C);
+
+		\draw (A) -- +(0, 0.5);
+		\draw (C) -- +(0, -0.5);
+
+		\draw (D) -- +(0, 0.5);
+		\draw (D) -- +(0, -0.5);
+	\end{tikzpicture}
+	\caption{penrosesche graphische Notation zur Tensorkontraktion}
+	\label{fig:penrose}
+\end{figure}
+
+Die Determinante $\det\del{\tens D}$ ist 1.
+
+\subsection{Lichtstrahl}
+
+Ein Lichtstrahl ist gegeben durch:
+\[
+	\vec l = \begin{pmatrix}
+		\unit{1}{\milli\meter} \\ 0
+	\end{pmatrix}
+\]
+
+Die Position nach der Linsenanordnung, $\vec n$, wird durch $n^a = D^a{}_b l^b$
+gegeben:
+\[
+	\vec n = \begin{pmatrix}
+		\unit{-0.75}{\milli\meter} \\ \unit{2.5}{\milli\radian}
+	\end{pmatrix}
+\]
+
+Und die Position noch einen Meter später, $\vec m$, wird mit der geraden
+Ausbreitungsmatrix $\tens E$ bestimmt durch $m^a = E^a{}_b n^b$:
+\[
+	\tens E = \begin{pmatrix}
+		1 & \unit{1}{\meter} \\ 0 & 1
+	\end{pmatrix}
+	, \quad
+	\vec m = \begin{pmatrix}
+		\unit{1.75}{\milli\meter} \\
+		\unit{2.5}{\milli\rad}
+	\end{pmatrix}
+\]
+
+Der Strahl hat also nach der Linsenanordnung und nach einem Meter den Abstand
+$\unit{0.75}{\milli\meter}$ be\-zieh\-ungs\-weise $\unit{1.75}{\milli\meter}$ von der
+Achse.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       konfokaler optischer Resonator                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{konfokaler optischer Resonator}
+\label 2
+
+Die Matrix für den Spiegel und Distanz sind:
+\[
+	\tens S = \begin{pmatrix}
+		1 & 0 \\ - \frac 2r & 1
+	\end{pmatrix}
+	, \quad
+	\tens D = \begin{pmatrix}
+		1 & d \\ 0 & 1
+	\end{pmatrix}
+\]
+
+Zusammen ergeben Sie die Matrix $\tens R$ für einen kompletten Zyklus im
+Resonator (\( R^a{}_e = S^a{}_b D^b{}_c S^c{}_d D^d{}_e \)):
+\[
+	\tens R = \begin{pmatrix}
+		\frac{r-2d}r & \frac{2d(r-d)}{r} \\
+		\frac{4(d-r)}{r^2} & \frac{4d^2 - 6dr + r^2}{r^2}
+	\end{pmatrix}
+\]
+
+Dies entspricht der Matrix, die auf dem Aufgabenblatt angegeben ist.
+
+Für den Fall $r = d$ vereinfacht sich die Matrix zur negativen Einheitsmatrix.
+Das Quadrat davon ist die Einheitsmatrix.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        achromatisches Linsendublett                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{achromatisches Linsendublett}
+\label 3
+
+\subsection{Herleitung}
+
+Ich schreibe $f_x := f\del{\lambda_x}$. Zur Herleitung beginne ich mit der
+Definition von $A$:
+\begin{align*}
+	A &= f_r - f_b \\
+	A &= \frac{f_r - f_b}{f_g^2} f_g^2 \\
+	\intertext{Ich benutze die zweite Beziehung.}
+	A &= \frac{f_r - f_b}{f_r f_g} f_g^2 \\
+	A &= \del{\frac{1}{f_b} - \frac{1}{f_b}} f_g^2 \\
+	A &= \frac{\frac{1}{f_b} - \frac{1}{f_b}}{\frac{1}{f_g}} f_g \\
+	A &= \frac{\frac{k}{f_b} - \frac{k}{f_b}}{\frac{k}{f_g}} f_g \\
+	\intertext{Ich benutze die erste Beziehung.}
+	A &= \frac{(n_b-1) - (1-n_r)}{n_g-1} f_g \\
+	A &= \frac{n_b - n_r}{n_g-1} f_g \\
+	\intertext{Ich setze $B$ ein.}
+	A &= B f_g \\
+\end{align*}
+
+\subsection{Verhältnis}
+
+Es soll für das die chromatische Aberration $A$ des Gesamtsystems gelten: $A =
+0$. Die Brechkräfte der einzelnen Linsen addieren sich auf, so dass für die
+Summen gelten muss:
+\begin{align*}
+	f_r - f_b &= 0 \\
+	\intertext{Diese Brennweiten kann ich jetzt als Summe der einzelnen
+	Brennweiten ausdrücken:}
+	\frac{1}{\frac{1}{f_{1,r}} + \frac{1}{f_{2,r}}} - \frac{1}{\frac{1}{f_{1,b}} + \frac{1}{f_{2,b}}} &= 0 \\
+	\frac{f_{1,r} f_{2,r}}{f_{1,r} + f_{2,r}} - \frac{f_{1,b} f_{2,b}}{f_{1,b} + f_{2,b}} &= 0 \\
+	\intertext{Jetzt forme ich das ganze noch etwas weiter um. Nach fünf
+	Schritten erhalte ich:}
+	\frac{f_{1,r} f_{1,b}}{f_{1,r} + f_{1,b}} - \frac{f_{2,r} f_{2,b}}{f_{2,r} + f_{2,b}} &= 0 \\
+	\intertext{An dieser Stelle benutze ich die zweite Beziehung aus der
+	vorherigen Aufgabe sowie die Definition von $A$.}
+	\frac{f_{1,g}^2}{A_1} + \frac{f_{2,g}^2}{A_2} &= 0 \\
+	\intertext{Nun setze ich $A = B f_g$ ein und kürze das $f_g$.}
+	\frac{f_{1,g}}{B_1} + \frac{f_{2,g}}{B_2} &= 0 \\
+	\intertext{Umgestellt erhalte ich die gesuchte Beziehung.}
+	\frac{f_{1,g}}{f_{2,g}} &= - \frac{B_1}{B_2} \\
+\end{align*}
+
+Hierbei zählt die Brennweite der konkaven Linse als negativ. Würde man hier
+Beträge benutzen, entfiele das Minus.
+
+\subsection{konkrete Werte}
+
+Zuerst bestimme ich $B_1$ und $B_2$ aus den Daten:
+\[
+	B_1 = 0.0154739
+	,\quad
+	B_2 = 0.0274194
+\]
+
+Die Brennweite einer gekrümmten Fläche
+ist\footnote{\url{https://de.wikipedia.org/wiki/Brennweite\#Brechende_Fl.C3.A4che}}:
+\[
+	f' = r \frac{n'}{n'-n}
+\]
+
+Die Gesamtbrennweite des Systems ist:
+\[
+	\frac 1f = \frac{n_1-1}{r_1 n_1} + \frac{n_2-n_1}{r_2 n_2} + \underbrace{\frac{1-n_2}{r_3}}_{\to 0}
+\]
+
+Um eine zweite Gleichung für dieses System zu erhalten, muss ich das ganze für rotes und blaues Licht betrachten:
+\begin{align*}
+	\unit{4}{\reciprocal\meter} &= \frac{n_{1,r}-1}{r_1 n_{1,r}} + \frac{n_{2,r}-n_{1,r}}{r_2 n_{2,r}} \\
+	\unit{4}{\reciprocal\meter} &= \frac{n_{1,b}-1}{r_1 n_{1,b}} + \frac{n_{2,b}-n_{1,b}}{r_2 n_{2,b}} \\
+\end{align*}
+
+Dieses Gleichungssystem habe ich in Mathematica nach $r_1$ und $r_2$ lösen lassen. Als Ergebnis erhalte ich:
+\[
+	r_1 = \unit{0.0946487}\meter
+	\quad\wedge\quad
+	r_2 = \unit{0.151399}\meter
+\]
+
+Wenn ich allerdings grün und rot benutze, erhalte ich:
+\[
+	r_1 = \unit{0.0949488}\meter
+	\quad\wedge\quad
+	r_2 = \unit{0.154827}\meter
+\]
+
+Eigentlich sollte das gleiche herauskommen. Außerdem würde ich erwarten, dass
+der $r_2$ negativ ist, so wie in der Zeichnung dargestellt.
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
