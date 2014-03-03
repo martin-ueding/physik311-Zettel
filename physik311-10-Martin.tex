@@ -187,12 +187,12 @@ Gegeben ist die Funktion $f(t) = \abs{\sin(t)}$. Es soll die Fourierreihe bestim
 		Jetzt habe ich etwas weiter oben und in der vorherigen Zeile das
 		gleiche Integral stehen. Ich bringe beides auf eine Seite und erhalte:
 	}
-	\del{\frac 2\pi - n^2} \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac 2\pi \del{(-1)^n+1} \\
-							   \frac 2\pi \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac{2^2}{\pi^2} \frac{(-1)^n+1}{\frac 2\pi - n^2} \\
+	\frac 2\pi\del{1 - n^2} \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac 2\pi \del{(-1)^n+1} \\
+							   \frac 2\pi \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2} \\
 	\intertext{%
 		Dies ist gerade der gesuchte Koeffizient.
 	}
-							   a_n &= \frac{2^2}{\pi^2} \frac{(-1)^n+1}{\frac 2\pi - n^2}
+							   a_n &= \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2}
 \end{align*}
 
 Die Bestimmung der $b_n$ geht schneller: Die Funktion $\abs{\sin(t)}$ ist
@@ -209,7 +209,7 @@ Die Komponente $a_0$ ergibt sich aus $a_n$. Dies ist auch direkt der Gleichstrom
 
 Die Fourierreihe ist:
 \[
-	f(t) = \frac 4 \pi + \sum_{n = 1}^\infty \frac{2^2}{\pi^2} \frac{(-1)^n+1}{\frac 2\pi - n^2} \cos(nt)
+	f(t) = \frac 4 \pi + \sum_{n = 1}^\infty \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2} \cos(nt)
 \]
 
 \subsection{Puls}
@@ -237,21 +237,21 @@ Die Fouriertransformierte ist:
 
 Ich setze $\omega = \gamma$ ein. Der Betrag ist:
 \[
-	\frac{1}{\sqrt{\pi}} \frac{1}{2 \gamma}
+	\frac{1}{\sqrt{\pi}} \frac{1}{2 \gamma} = \frac{1}{\sqrt{4 \pi} \gamma}
 \]
 
 Die Phase ist $- \pi / 4$.
 
 Nun setze ich $\omega = 2 \gamma$ ein. Der Betrag ist:
 \[
-	\frac{1}{\sqrt{2 \pi}} \frac{\sqrt{5}}{5 \gamma}
+	\frac{1}{\sqrt{2 \pi}} \frac{\sqrt{5}}{5 \gamma} = \frac{1}{\sqrt{10 \pi} \gamma}
 \]
 
 Die Phase ist $\arctan\del{-2}$.
 
 Das Amplitudenverhältnis ist:
 \[
-	\frac 52 \frac{1}{\sqrt{5}}
+	\sqrt{\frac{10}{4}} = \sqrt{\frac 52}
 \]
 
 Und die Phasendifferenz:
@@ -291,6 +291,24 @@ Umgekehrt wird ein beliebig kurzer Lichtpuls eine Sinuswelle im Frequenzraum.
 
 \section{Beugungsverluste in einem Resonator}
 \label 4
+
+\subsection{Fresnelzahl}
+
+Der Radius der Zonen ist gegeben durch:
+\[
+	r^2 = \del{d + \frac{N \lambda}{2}}^2 - d^2
+\]
+
+Der maximale Radius ist der Spiegelradius, also $a$. Somit kann ich nach $N$ umstellen und erhalte:
+\[
+	n = \frac{a^2}{\lambda d}
+\]
+
+\subsection{relativer Begungsverlust}
+
+\fehlt
+
+\subsection{Lichtleistung}
 
 \fehlt
 
