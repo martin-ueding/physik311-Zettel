@@ -1,0 +1,320 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{scrpage2}
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
+\newcommand{\theuebung}{10}
+
+\pagestyle{scrheadings}
+
+\cfoot{\footnotesize{\thegruppe}}
+\ifoot{\footnotesize{Martin Ueding}}
+\ofoot{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ohead{\rightmark}
+\chead{}
+\setheadsepline{.4pt}
+\automark{section}
+
+\setcounter{section}{32}
+
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c}
+		Aufgabe & \ref 1 & \ref 2 & \ref 3 & \ref 4 & $\sum$   \\
+		\hline
+		Punkte & \punkte & \punkte & \punkte & \punkte & \punkte
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       dielektrische Vielfachschichten                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{dielektrische Vielfachschichten}
+\label 1
+
+\subsection{Einsetzen und Ausrechnen für Dreifachschicht}
+
+Diese Aufgabe habe ich in \emph{Mathematica} gerechnet. \footnote{Die Datei ist
+auf \url{http://uni-bonn.de/~s6mauedi/physik311/} zu finden.} Dazu habe ich
+zuerst einige Variablen definiert:
+\begin{gather*}
+	n_0 := 1
+	,\quad
+	n_1 := 1.38
+	,\quad
+	n_2 := 2.30
+	,\quad
+	n_3 := 1.76
+	,\quad
+	n_4 := 1.63 \\
+	%
+	\delta_j := \frac{2 \pi}{\lambda_0} n_j 2 L_j \cos\del{\theta_j} \\
+	%
+	L_1 := \frac{\lambda_0}{4 n_1}
+	,\quad
+	L_2 := \frac{2 \lambda_0}{4 n_3}
+	,\quad
+	L_3 := \frac{3 \lambda_0}{4 n_3} \\
+	%
+	\theta_j := 0 \\
+	% \\
+	\tens M_j := \begin{pmatrix}
+		\cos\del{\frac{\delta_j}{2}} &
+		\ii \sin\del{\frac{\delta_j}{2}} \frac{1}{n_j} \\
+		\ii \sin\del{\frac{\delta_j}{2}} n_j &
+		\cos\del{\frac{\delta_j}{2}}
+	\end{pmatrix} \\
+	%
+	\tens P := \tens M_3 \tens M_2 \tens M_1 \\
+	%
+	\tens E :=
+	\begin{pmatrix}
+		n_0 \\ -1
+	\end{pmatrix}
+	\tens P
+	\begin{pmatrix}
+		1 \\ n_f
+	\end{pmatrix}
+\end{gather*}
+
+Ich setze für $f = 4$ in die gegebenen Formeln ein.
+\begin{gather*}
+	\tens P
+	=
+	\left(
+\begin{array}{cc}
+ -0.7841& 2.8387\e{-16} \, \ii \\
+ 4.9059\e{-16}  \,\ii & -1.2754 \\
+\end{array}
+\right) \\
+%
+	\tens E
+	=
+	\begin{pmatrix}
+		a \\ b
+	\end{pmatrix}
+	=
+	\left(
+	\begin{array}{c}
+		+1.2947 -2.7876\e{-17} \, \ii \\
+		-2.8629 +9.5331\e{-16} \, \ii \\
+	\end{array}
+	\right)
+\end{gather*}
+
+Daraus bestimme ich $r$:
+\[
+	r = \abs{\frac ab}^2 = 0.204527
+\]
+
+\subsection{alternierende Folge}
+
+Mir fehlten Werte für $n_H$ und $n_L$, diese sind auch nicht aus der Rechnung
+herausgefallen wir das $\lambda_0$ in der vorherigen Aufgabe.
+
+Ausgehend von den Variablendeklarationen der vorherigen Teilaufgabe habe ich
+einige geändert:
+\begin{gather*}
+	\delta_j := \pi \\
+	%
+	n_j := \begin{cases}
+		n_H & \frac j2 \notin \Z \\
+		n_L & \frac j2 \in \Z
+	\end{cases}
+\end{gather*}
+
+Der Tensor $\tens M_j$ bleibt wie vorhin, nur dass das neue $n_j$ und
+$\delta_j$ benutzt werden. Dann habe ich durch Ausprobieren so lange $\tens M_2
+\tens M_1$ an den Tensor $\tens P$ gehängt, bis die Reflektivität bei $n_H =
+1.5$ und $n_L = 1.1$ über $0.999$ gestiegen ist. Dafür musste ich $N = 30$
+Schichten benutzen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Auflösungsvermögen eines Fernrohrs                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Auflösungsvermögen eines Fernrohrs}
+\label 2
+
+Der Sehwinkel $\phi$ zwischen zwei Objekten muss größer sein als $\lambda/r$,
+damit die Beugungsscheibchen sich nicht überdecken. Bei $r =
+\unit{2.5}{\meter}$ und $\lambda = \unit{500}{\nano\meter}$ ist dies ein Winkel
+von $\phi = \unit{200}{\nano\radian}$. Bei einer Entfernung von
+$\unit{380}{\mega\meter}$ entspricht dies einem Abstand von
+$\unit{76}{\meter}$.
+
+Das Auge hat eine Auflösung von $\phi' = \unit{125}{\micro\radian}$, ist also
+gut um einen Faktor $500$ schlechter. Die Objekte auf dem Mond müssten dann
+schon $\unit{47.5}{\kilo\meter}$ auseinander sein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Fouriertransformation                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fourierreihenentwicklung und -transformation}
+\label 3
+
+\subsection{Fourierreihe}
+
+Gegeben ist die Funktion $f(t) = \abs{\sin(t)}$. Es soll die Fourierreihe bestimmt werden.
+\begin{align*}
+	a_n
+	&= \frac 1\pi \int_{-\pi}^\pi \dif t \, \abs{\sin(t)} \cos(nt) \\
+	&= \frac 2\pi \int_0^\pi \dif t \, \sin(t) \cos(nt) \\
+	&= \frac 2\pi \sbr{-\cos(t) \cos(nt)}_0^\pi - \frac 2\pi \int_0^\pi \dif t \, \cos(t) \sin(nt) n \\
+	\intertext{%
+		Ich wende wieder partielle Integration an, dabei ist der erste Term 0.
+	}
+	&= \frac 2\pi \del{(-1)^n+1} + \frac 2\pi \int_0^\pi \dif t \, \sin(t) \cos(nt) n^2 \\
+	\intertext{%
+		Jetzt habe ich etwas weiter oben und in der vorherigen Zeile das
+		gleiche Integral stehen. Ich bringe beides auf eine Seite und erhalte:
+	}
+	\frac 2\pi\del{1 - n^2} \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac 2\pi \del{(-1)^n+1} \\
+							   \frac 2\pi \int_0^\pi \dif t \, \sin(t) \cos(nt) &= \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2} \\
+	\intertext{%
+		Dies ist gerade der gesuchte Koeffizient.
+	}
+							   a_n &= \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2}
+\end{align*}
+
+Die Bestimmung der $b_n$ geht schneller: Die Funktion $\abs{\sin(t)}$ ist
+gerade, die Funktion $\sin(nt)$ ungerade. Somit ist das Integral über ein bei
+0 zentriertes Intervall gerade 0.
+\[
+	b_n = \frac 1\pi \int_{-\pi}^\pi \dif t \, \abs{\sin(t)} \sin(nt) = 0
+\]
+
+Die Komponente $a_0$ ergibt sich aus $a_n$. Dies ist auch direkt der Gleichstromanteil.
+\[
+	a_0 = \frac 4\pi
+\]
+
+Die Fourierreihe ist:
+\[
+	f(t) = \frac 4 \pi + \sum_{n = 1}^\infty \frac{2}{\pi} \frac{(-1)^n+1}{1 - n^2} \cos(nt)
+\]
+
+\subsection{Puls}
+
+Gegeben ist $f(t)$, es soll die Fouriertransformierte bestimmt werden:
+\[
+	f(t) = \begin{cases}
+		\exp\del{-\gamma t} & t \geq 0 \\
+									  0 & \text{sonst}
+	\end{cases}
+\]
+
+Die Fouriertransformierte ist:
+\begin{align*}
+	f(\omega)
+	&= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty \dif t \, f(t) \exp\del{-\ii \omega t} \\
+	&= \frac{1}{\sqrt{2 \pi}} \int_0^\infty \dif t \, \exp\del{-\gamma t} \exp\del{-\ii \omega t} \\
+	&= \frac{1}{\sqrt{2 \pi}} \int_0^\infty \dif t \, \exp\del{-\del{\gamma + \ii \omega} t} \\
+	&= \frac{1}{\sqrt{2 \pi}} \frac{1}{-\del{\gamma + \ii \omega}} \sbr{\exp\del{-\del{\gamma + \ii \omega} t}}_0^\infty \\
+	&= \frac{1}{\sqrt{2 \pi}} \frac{1}{\gamma + \ii \omega} \\
+	&= \frac{1}{\sqrt{2 \pi}} \frac{\gamma - \ii \omega}{\gamma^2 + \omega^2} \\
+\end{align*}
+
+\subsection{Amplitude und Phase}
+
+Ich setze $\omega = \gamma$ ein. Der Betrag ist:
+\[
+	\frac{1}{\sqrt{\pi}} \frac{1}{2 \gamma} = \frac{1}{\sqrt{4 \pi} \gamma}
+\]
+
+Die Phase ist $- \pi / 4$.
+
+Nun setze ich $\omega = 2 \gamma$ ein. Der Betrag ist:
+\[
+	\frac{1}{\sqrt{2 \pi}} \frac{\sqrt{5}}{5 \gamma} = \frac{1}{\sqrt{10 \pi} \gamma}
+\]
+
+Die Phase ist $\arctan\del{-2}$.
+
+Das Amplitudenverhältnis ist:
+\[
+	\sqrt{\frac{10}{4}} = \sqrt{\frac 52}
+\]
+
+Und die Phasendifferenz:
+\[
+	\abs{\frac \pi4 - \arctan(2)}
+\]
+
+\subsection{Rechteckfunktion}
+
+Gegeben ist eine Spektralfunktion $f(\omega)$:
+\[
+	f(\omega) = \begin{cases}
+		\frac 1{\Deltaup \omega} & \abs{\omega - \omega_0} \leq \frac{\Deltaup \omega}2 \\
+											  0 & \text{sonst}
+	\end{cases}
+\]
+
+Die ursprüngliche Funktion ist:
+\begin{align*}
+	f(t)
+	&= \frac{1}{\sqrt{2\pi}} \frac{1}{\Deltaup \omega} \int_{\omega_0 - \Deltaup \omega/2}^{\omega_0 + \Deltaup \omega/2} \dif \omega \, \exp\del{\ii \omega t} \\
+	&= \frac{1}{\sqrt{2\pi}} \frac{1}{\ii t \Deltaup \omega} \sbr{\exp\del{\ii \omega t}}_{\omega_0 - \Deltaup \omega/2}^{\omega_0 + \Deltaup \omega/2} \\
+	&= \frac{1}{\sqrt{2\pi}} \frac{1}{\ii t \Deltaup \omega} \exp\del{\ii \omega_0 t} \del{\exp\del{\ii \frac{\Deltaup \omega}2 t} - \exp\del{-\ii \frac{\Deltaup \omega}2 t}} \\
+	&= \frac{1}{\sqrt{2\pi}} \frac{2}{\ii t \Deltaup \omega} \exp\del{\ii \omega_0 t} \sin\del{\frac{\Deltaup \omega}2 t}
+\end{align*}
+
+Für $\Deltaup \omega \to 0$ wird die Spektralfunktion zu einer $\delta$-Distribution. Diese enthält genau eine Frequenz, $\omega_0$, es kommt also genau eine Sinusschwingung heraus. Durch Einsetzen und die Regel von l'Hospital erhalte ich:
+\[
+	f(t) = \frac{1}{\sqrt{2 \pi} \ii} \exp\del{\ii \omega_0 t}
+\]
+
+Umgekehrt wird ein beliebig kurzer Lichtpuls eine Sinuswelle im Frequenzraum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Beugungsverluste in einem Resonator                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Beugungsverluste in einem Resonator}
+\label 4
+
+\subsection{Fresnelzahl}
+
+Der Radius der Zonen ist gegeben durch:
+\[
+	r^2 = \del{d + \frac{N \lambda}{2}}^2 - d^2
+\]
+
+Der maximale Radius ist der Spiegelradius, also $a$. Somit kann ich nach $N$ umstellen und erhalte:
+\[
+	n = \frac{a^2}{\lambda d}
+\]
+
+\subsection{relativer Begungsverlust}
+
+\fehlt
+
+\subsection{Lichtleistung}
+
+\fehlt
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
