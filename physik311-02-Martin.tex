@@ -1,0 +1,296 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman, fleqn]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{1.5cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3}
+\newcommand{\theuebung}{2}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding}}
+\fancyfoot[R]{\footnotesize{Seite \thepage}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{4}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             Phasenverschiebung                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Phasenverschiebung}
+
+\subsection{Form}
+
+Die Lichtgeschwindigkeit ist innerhalb der Glasplatte um $n$ kleiner, als in
+der Umgebung. Die Welle hat im Vakuum eine Wellenzahl von:
+\[
+	k_1 = \frac \omega c
+\]
+
+Bei einer Glasdicke von $\Delta x$ würde die Welle bei voller Geschwindigkeit
+(also $n=1$) um $\phi_1$ oszillieren:
+\[
+	\phi_1 = k_1 \Delta x = \frac \omega c \Delta x
+\]
+
+In der Glasplatte verändert sich allerdings die Wellenzahl zu:
+\[
+	k_n = \frac{\omega n}{c}
+\]
+
+In der Glasdicke können nun also mehr Schwingungen im gleichen Raum statt
+finden, weil die räumliche Frequenz $k_n$ größer als $k_1$ ist:
+\[
+	\phi_n = k_n \Delta x = \frac{\omega n}c \Delta x
+\]
+
+Somit ist die Welle also um $\phi_n - \phi_1$:
+\[
+	\Delta \phi = \frac\omega c \del{n - 1} \Delta x
+\]
+
+Diese Phasenverschiebung lässt sich in der komplexen Schreibweise darstellen
+als Vorfaktor:
+\[
+	\exp\del{-\ii \phi} = \exp\del{- \ii \frac\omega c \del{n - 1} \Delta x}
+\]
+
+Somit ist die Welle:
+\[
+	E = E_0 \exp\del{-\ii \del{\omega t - kx - k \del{n - 1} \Delta x}}
+\]
+
+Die Polarisation ist also um $\Delta \phi$ weitergedreht worden, im Vergleich
+zur unbeeinflussten Ausbreitung.
+
+\subsection{Vereinfachungen}
+
+Für den Fall $n \approx 1$ und $\Delta x \ll 1$ wird die Welle wieder zur
+vorherigen Welle, kann die Exponentialfunktion entwickelt werden:
+\[
+	E = E_0 \exp\del{-\ii \del{\omega t - kx}}\del{1+- \ii \frac\omega c \del{n - 1} \Delta x}
+\]
+
+Für $\del{n-1}\Delta x \approx 0$ kommt wieder die vorherige Welle heraus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Fata Morgana                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fata Morgana}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (-2, -1) -- ++(4, 0);
+		\draw (-2, 0) -- ++(4, 0);
+		\draw[thick, ->] (0, 0) -- ++(30:2);
+		\draw[thick, <-] (0, 0) -- ++(150:2);
+		\draw (-1, 0) arc (180:150:1) node[below left] {$\phi$};
+	\end{tikzpicture}
+	\caption{Skizze zur Fata Morgana}
+\end{figure}
+
+\subsection{kritischer Winkel}
+
+Gegeben ist, dass $\del{n-1} \propto \rho$ ist. Aus der idealen Gasgleichung
+kann man $\rho \propto T^{-1}$ ableiten. Somit folgt:
+\[
+	\del{n-1} \propto \frac 1T
+\]
+
+Der Brechungsindex der unteren Luftschicht ist demnach:
+\[
+	n_2 = \del{n-1} \frac{T}{\Delta T + T} + 1
+\]
+
+Wenn der durchgehende Strahl im Winkel $\unit{\pi / 2}\rad$ gebrochen wird, ist
+der kritische Winkel erreicht. Somit gilt nach dem Brechungsgesetz, in das
+$\sin\del{\pi/2} = 1$ eingesetzt wurde:
+\begin{align*}
+	\sin\del{\frac \pi 2 - \phi} &= \frac{n_2}{n} \\
+	\cos\del{\phi} &= \frac{n_2}{n} \\
+	1-\frac{\phi^2}2 &= \frac{\del{n-1}\frac{T}{\Delta T + T}+1}{n} \\
+	\intertext{Da $\del{n-1} \ll 1$ gelten soll, kann ich den Nenner entfallen lassen.}
+	1-\frac{\phi^2}2 &= \del{n-1}\frac{T}{\Delta T + T}+1 \\
+	\phi^2 &= 2\del{1-n}\frac{T}{\Delta T + T} \\
+	  \phi &= \sqrt{2\del{1-n}\frac{T}{\Delta T + T}}
+\end{align*}
+
+Wie es jetzt allerdings weiter geht, weiß ich nicht.
+
+\subsection{Abstand}
+
+Bei $\phi = \unit{0.00447214}\rad$ und einer Höhe von $h := \unit{1.8}\meter$
+ist der Abstand $d = \cot(\phi) h = \unit{402.49}\meter$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Licht als elektromagnetische Welle                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Licht als elektromagnetische Welle}
+
+\subsection{Feldstärken}
+
+Die Lichtintensität $I$ ist der Betrag des Poyntingvektors $\vec S$:
+%
+\begin{align*}
+	\vec S &= \vec E \times \vec H \\
+	\intertext{
+		Die gegebene Intensität ist wahrscheinlich ein Effektivwert, so dass
+		ich hier ebenfalls mit den Effektivwerten rechne.
+	}
+	I &= E H \\
+	I &= E \frac1{\mu_0} B \\
+	\intertext{
+		Dabei gilt für $E$ und $H$ in der elektromagnetischen Welle $E = c B$.
+	}
+	I &= \frac{1}{c\mu_0} E^2 \\
+	\sqrt{I\mu_0 c} &= E = \unit{61.3784}{\volt\per\meter} \\
+	B &= \unit{2.04736 \e{-7}}\tesla
+\end{align*}
+
+\subsection{Frequenz}
+
+Die Frequenz von Licht ist:
+\[
+	c = f \lambda
+	, \quad
+	f = \unit{5.99 \e{14}}{\hertz}
+\]
+
+Eine Periode dauert $T = \frac 1f = \unit{1.67 \e{-15}}\second$. Direkt auf
+einem Oszilloskop lässt sich dies nicht beobachten, dort ist bei einigen $\giga
+\hertz$ Schluss. Vergleichen könnte man eine derartige Frequenz mit dem
+Frequenzkamm. Im Vergleich zu alltäglichen Vorgängen ist eine Oszillation
+absurd kurz. Es gibt allerdings gepulste Laser, die im $\atto \second$ Bereich
+agieren, dagegen oszilliert das Licht langsam. Gegen die Plankzeit ist die
+Periode gigantisch.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Strahlenablenkung durch ein Prisma                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Strahlenablenkung durch ein Prisma}
+
+\subsection{Ablenkwinkel $\delta$}
+
+Die Brechungswinkel im Inneren des Prismas seien $\theta_1'$ und $\theta_2'$.
+Folgende Beziehungen lassen sich aus der Geometrie ableiten:
+\[
+	\theta_1 + \theta_2 + \pi - \delta + \pi - \alpha = 2 \pi
+	,\quad
+	\theta_1' + \theta_2' = \alpha
+	,\quad
+	\frac{\sin\del{\theta_1'}}{\sin\del{\theta_1}} = n = \frac{\sin\del{\theta_2'}}{\sin\del{\theta_2}}
+\]
+
+Daraus lässt sich \emph{irgendwie} die gesuchte Beziehung herleiten:
+\[
+	\delta = \theta_1 - \alpha + \arcsin\del{\sin\del\alpha \sqrt{n^2 - \sin^2\del{\theta_1}} - \cos\del\alpha \sin\del{\theta_1}}
+\]
+
+\subsection{minimales $\delta$}
+
+Beim symmetrischen Durchgang durch das Prisma wird das Licht am wenigsten
+gebrochen. Kommt es steiler auf der einen Seite rein, wird es dafür auf der
+anderen Seite stärker gebrochen und umgekehrt. Dies ist besonders im Grenzfall
+$\alpha \to 0$ zu beobachten.
+
+Der minmale Ablenkwinkel ist gegeben durch:
+\[
+	\delta_\text{min} = 2 \arcsin\del{n \sin\del{\frac \alpha2}}
+\]
+
+Für das minimale $\delta$ gilt dann:
+\[
+	\theta_1 = \theta_2 = \half \del{\delta_\text{min} + \alpha}
+\]
+
+\subsection{konkrete Werte}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|ccc}
+		$n$ & $1.5130$ & $1.5067$ & $1.5246$ \\
+		\hline
+		$\delta_\text{min}$ & $\unit{1.71589}\rad$ & $\unit{1.70628}\rad$ & $\unit{1.73372}\rad$ \\
+			  $\theta_1$ & $\unit{1.38154}\rad$ & $\unit{1.37674}\rad$ & $\unit{1.39046}\rad$ \\
+	\end{tabular}
+	\caption{verschiedene Werte für $n$ eingesetzt}
+\end{table}
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
