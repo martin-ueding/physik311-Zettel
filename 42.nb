@@ -1,0 +1,272 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7902,        262]
+NotebookOptionsPosition[      6676,        214]
+NotebookOutlinePosition[      7014,        229]
+CellTagsIndexPosition[      6971,        226]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"alpha", ":=", 
+  RowBox[{
+   RowBox[{"15", "/", "180"}], "*", "Pi"}]}]], "Input",
+ CellChangeTimes->{{3.566994009494866*^9, 3.56699401997208*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"no", "=", "1.544"}]], "Input",
+ CellChangeTimes->{{3.5669940984950542`*^9, 3.5669941011401377`*^9}, {
+  3.566994318849739*^9, 3.566994321897307*^9}}],
+
+Cell[BoxData["1.544`"], "Output",
+ CellChangeTimes->{3.566994101665707*^9, 3.5669943226895037`*^9, 
+  3.566994578204427*^9, 3.566994940771962*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"nao", ":=", "1.553"}]], "Input",
+ CellChangeTimes->{{3.566994085984393*^9, 3.566994095691033*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", "alpha", "]"}]], "Input",
+ CellChangeTimes->{{3.5669947712725267`*^9, 3.566994773321763*^9}}],
+
+Cell[BoxData["0.2617993877991494`"], "Output",
+ CellChangeTimes->{3.5669947737643023`*^9, 3.566994940820175*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", "alpha", "]"}], "/", 
+        RowBox[{"Sin", "[", "betao", "]"}]}], "\[Equal]", 
+       RowBox[{"nao", "/", "no"}]}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", "alpha", "]"}], "/", 
+        RowBox[{"Sin", "[", "betaao", "]"}]}], "\[Equal]", 
+       RowBox[{"no", "/", "nao"}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"betao", ",", "betaao"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.566994023028737*^9, 3.5669940822209377`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ifun"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Inverse functions are being used by \
+\[NoBreak]\\!\\(Solve\\)\[NoBreak], so some solutions may not be found; use \
+Reduce for complete solution information. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Solve/ifun\\\", ButtonNote -> \
+\\\"Solve::ifun\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.566994103112611*^9, 3.566994324408134*^9, 
+  3.566994578260767*^9, 3.566994940882783*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"betao", "\[Rule]", "0.26024688154517`"}], ",", 
+    RowBox[{"betaao", "\[Rule]", "0.26336159540621484`"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.5669940826650476`*^9, 3.5669941032563143`*^9}, 
+   3.5669943244105797`*^9, 3.566994578262425*^9, 3.56699494088482*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"betao", "-", "betaao"}], "/.", "s"}], "//", "Abs"}]], "Input",
+ CellChangeTimes->{{3.566994213929832*^9, 3.566994220208853*^9}, {
+  3.566994332698482*^9, 3.566994333386299*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "0.0031147138610448377`", "}"}]], "Output",
+ CellChangeTimes->{
+  3.56699422071278*^9, {3.5669943253925343`*^9, 3.566994334088551*^9}, 
+   3.5669945782667313`*^9, 3.566994940890285*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gammao", "=", 
+  RowBox[{
+   RowBox[{"betao", "-", "alpha"}], "/.", 
+   RowBox[{"s", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.56699487856325*^9, 3.566994899330205*^9}, 
+   3.56699501941146*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.0015525062539794021`"}]], "Output",
+ CellChangeTimes->{{3.5669948897556257`*^9, 3.566994899783009*^9}, 
+   3.56699494093333*^9, 3.566995025468116*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gammaao", "=", 
+  RowBox[{
+   RowBox[{"betaao", "-", "alpha"}], "/.", 
+   RowBox[{"s", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.566994905566311*^9, 3.566994906804122*^9}, 
+   3.566995020726165*^9}],
+
+Cell[BoxData["0.0015622076070654356`"], "Output",
+ CellChangeTimes->{3.566994909731002*^9, 3.566994940937914*^9, 
+  3.566995022063068*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s2", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", "gammao", "]"}], "/", 
+        RowBox[{"Sin", "[", "deltao", "]"}]}], "\[Equal]", 
+       RowBox[{"1", "/", "nao"}]}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Sin", "[", "gammaao", "]"}], "/", 
+        RowBox[{"Sin", "[", "deltaao", "]"}]}], "\[Equal]", 
+       RowBox[{"1", "/", "no"}]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"deltao", ",", "deltaao"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.566994531745653*^9, 3.566994614806407*^9}, {
+  3.5669949133372107`*^9, 3.5669949298510103`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ifun"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Inverse functions are being used by \
+\[NoBreak]\\!\\(Solve\\)\[NoBreak], so some solutions may not be found; use \
+Reduce for complete solution information. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Solve/ifun\\\", ButtonNote -> \
+\\\"Solve::ifun\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.5669945806137037`*^9, 3.566994615647455*^9}, 
+   3.566994940999261*^9, 3.566995027419201*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"deltao", "\[Rule]", 
+     RowBox[{"-", "0.002411043579835473`"}]}], ",", 
+    RowBox[{"deltaao", "\[Rule]", "0.0024120499030889507`"}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.5669945806157217`*^9, 3.566994615651613*^9}, 
+   3.566994941000824*^9, 3.566995027421198*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"deltao", "-", "deltaao"}], "/.", 
+   RowBox[{"s2", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "//", "Abs"}]], "Input",
+ CellChangeTimes->{{3.566994629030046*^9, 3.566994641534486*^9}, {
+  3.566994931839568*^9, 3.566994962805071*^9}}],
+
+Cell[BoxData["0.004823093482924423`"], "Output",
+ CellChangeTimes->{
+  3.566994642045309*^9, {3.5669949410442963`*^9, 3.566994963261405*^9}, 
+   3.566995028725442*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{Automatic, 142}, {96, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 170, 4, 32, "Input"],
+Cell[CellGroupData[{
+Cell[752, 28, 173, 3, 32, "Input"],
+Cell[928, 33, 146, 2, 32, "Output"]
+}, Open  ]],
+Cell[1089, 38, 122, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[1236, 44, 126, 2, 32, "Input"],
+Cell[1365, 48, 112, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1514, 54, 631, 18, 55, "Input"],
+Cell[2148, 74, 600, 12, 43, "Message"],
+Cell[2751, 88, 347, 8, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3135, 101, 224, 5, 32, "Input"],
+Cell[3362, 108, 213, 4, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3612, 117, 254, 7, 32, "Input"],
+Cell[3869, 126, 181, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4087, 134, 258, 7, 32, "Input"],
+Cell[4348, 143, 138, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4523, 150, 687, 19, 55, "Input"],
+Cell[5213, 171, 605, 12, 43, "Message"],
+Cell[5821, 185, 351, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6209, 199, 281, 7, 32, "Input"],
+Cell[6493, 208, 167, 3, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
