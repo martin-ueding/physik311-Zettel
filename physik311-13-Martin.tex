@@ -1,0 +1,215 @@
+% Copyright © 2012-2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{float}
+\usepackage{scrpage2}
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
+\newcommand{\theuebung}{13}
+
+\pagestyle{scrheadings}
+
+\cfoot{\footnotesize{\thegruppe}}
+\ifoot{\footnotesize{Martin Ueding}}
+\ofoot{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ohead{\rightmark}
+\chead{}
+\setheadsepline{.4pt}
+\automark{section}
+
+\setcounter{section}{44}
+
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& $\sum$ \\
+		\hline
+		Punkte
+		& \punkte
+		& \punkte
+		& \punkte
+		& \punkte
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          de Broglie und Buckyballs                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{de Broglie und Buckyballs}
+\label 1
+
+\subsection{Wellenlänge}
+
+Es ist eine Beugung am Gitter, es gilt mit dem Spaltabstand $d$, der
+Schirmentfernung $l$, dem Abstand des $n$-ten Maximum von der Mitte des Schirms
+$x$:
+\[
+	\frac xl d = n \lambda
+\]
+
+Für $n = 1$ lese ich im Plot $x = \unit{45}{\micro\meter}$ ab. Mit $l =
+\unit{1.25}\meter$ und $d = \unit{100}{\nano\meter}$ errechne ich $\lambda$:
+\[
+	\lambda = \unit{3.6}{\pico\meter}
+\]
+
+Diese ist deutlich kleiner als deren Durchmesser. Dies liegt an der hohen
+Geschwindigkeit.
+
+\subsection{Austrittsgeschwindigkeit}
+
+Mit $p = h/\lambda$ errechne ich den Impuls:
+\[
+	p = \unit{1.84 \e{-22}}{\kilogram\usk\meter\per\second}
+\]
+
+Die Masse der Teilchen sind jeweils $m = \unit{60 \cdot 12}\atomicmass =
+\unit{1.20 \e{-24}}\kilogram$.
+
+Die (nichtrelativistische) Geschwindigkeit ist:
+\[
+	v = \frac pm = \unit{154}{\meter\per\second}
+\]
+
+Mit einer thermischen Energie $E = kT/2$ kann ich die Temperatur ausdrücken:
+\[
+	T = \frac{p^2}{km} = \unit{2050}\kelvin
+\]
+
+\subsection{Rubidium}
+
+Mit
+\[
+	\frac{p^2}{2m} = \half kT
+\]
+kann ich nach $\lambda$ umstellen:
+\[
+	\lambda = \frac{h}{\sqrt{kTm}} = \unit{1.48}{\micro\meter}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Lichtdruck auf Atome                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lichtdruck auf Atome}
+\label 2
+
+\paragraph{Atome}
+
+Der Impulsübertrag pro Photon ist:
+\[
+	p = 2 \frac{hf}{c}
+	= 2 \frac h\lambda
+	= \unit{1.70\e{-27}}{\kilogram\usk\meter\per\second}
+\]
+
+Dies passiert jede $\tau/2 = \unit{14}{\nano\second}$, da der Hin- und
+Rückübergang vollzogen werden muss. Somit ist die Kraft:
+\[
+	F = \frac p\tau = \unit{31}{\zepto\newton}
+\]
+
+Bei einer Masse von $m = \unit{87}\atomicmass$ ist dies eine Beschleunigung
+von:
+\[
+	a = \frac Fm = \unit{214}{\kilo\meter\per\second\squared}
+\]
+
+\paragraph{Erdbeschleunigung}
+
+Die Beschleunigung durch die Erde ist $\unit{9.81}{\meter\per\second\squared}$,
+was einer Kraft von $F_G = \unit{1.42}{\yocto\newton}$ entspricht.
+
+\paragraph{Golfball}
+
+Der Lichtdruck $P$ auf eine Fläche $A$ bei einer Leistung $\dot W$:
+\[
+	P = \frac FA = \frac{\dot W}{Ac}
+\]
+
+Ich löse nach $F$ auf und erhalte:
+\[
+	F = \unit{16.7}{\nano\newton}
+\]
+
+Dies ist eine Beschleunigung von $a_B = \unit{37}{\micro\meter\per\second\squared}$.
+
+Alles zusammen zur Übersicht:
+
+\begin{tabular}{lrr}
+	Objekt & Kraft $F$ & Beschleunigung $a$ \\
+	\hline
+	Atom -- Laser
+	& $\unit{31}{\zepto\newton}$
+	& $\unit{214}{\kilo\meter\per\second\squared}$ \\
+	Atom -- Schwerkraft
+	& $\unit{1.42}{\yocto\newton}$
+	& $\unit{9.81}{\meter\per\second\squared}$ \\
+	Golfball -- Laser
+	& $\unit{16.7}{\nano\newton}$
+	& $\unit{37}{\micro\meter\per\second\squared}$
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Schwarzkörperstrahlung der Sonne                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Schwarzkörperstrahlung der Sonne}
+\label 3
+
+Mit dem Fluss $F$, der Entfernung Erde--Sonne $R$ kann ich die Leuchtleistung
+$P$ der Sonne bestimmen:
+\[
+	P = 4 \pi R^2 F = \unit{395}{\yotta\watt}
+\]
+
+Die Temperatur $T$ errechne ich über das Stefan-Boltzmann-Gesetz mit dem
+Sonnenradius $r$:
+\[
+	T = \sqrt[4]{\frac{P}{4 \pi r^2 \sigma}} = \unit{5800}{\kelvin}
+\]
+
+Die maximale Frequenz erhalte ich über das Wien'sche Verschiebungsgesetz:
+\[
+	\nu = \unit{58.8}{\nano\hertz\per\kelvin} \cdot T = \unit{340}{\tera\hertz}
+\]
+
+Dies entspricht einer Wellenlänge von:
+\[
+	\lambda = \frac c\nu = \unit{879}{\nano\meter}
+\]
+
+Allerdings ist die die Wellenlänge zur Frequenz mit der maximalen Leistung $\od P\nu$, nicht die Wellenlänge zur maximalen Leistung $\od P\lambda$. Letzere berechnet sich mit:
+\[
+	\lambda' = \frac{\unit{2.89}{\milli\meter\per\kelvin}}T
+	= \unit{500}{\nano\meter}
+\]
+
+Dies ist grün, passt also.
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de

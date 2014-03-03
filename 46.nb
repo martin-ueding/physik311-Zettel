@@ -1,0 +1,205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4965,        196]
+NotebookOptionsPosition[      3582,        140]
+NotebookOutlinePosition[      3920,        155]
+CellTagsIndexPosition[      3877,        152]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"h", " ", "=", " ", "6.626*^-34"}]], "Input",
+ CellChangeTimes->{{3.567665531936499*^9, 3.5676655365965776`*^9}}],
+
+Cell[BoxData["6.626`*^-34"], "Output",
+ CellChangeTimes->{3.5676655373057613`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"1.66*^-27", "*", "87"}]}]], "Input",
+ CellChangeTimes->{3.56766554337392*^9}],
+
+Cell[BoxData["1.4442`*^-25"], "Output",
+ CellChangeTimes->{3.567665543812442*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lambda", "=", "780*^-9"}]], "Input",
+ CellChangeTimes->{{3.567665550331993*^9, 3.567665555980644*^9}}],
+
+Cell[BoxData[
+ FractionBox["39", "50000000"]], "Output",
+ CellChangeTimes->{3.5676655565009203`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"p", "=", 
+  RowBox[{"2", " ", 
+   RowBox[{"h", "/", "lambda"}]}]}]], "Input",
+ CellChangeTimes->{{3.5676655606903057`*^9, 3.567665576173359*^9}}],
+
+Cell[BoxData["1.698974358974359`*^-27"], "Output",
+ CellChangeTimes->{3.567665573540113*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tau", "=", "27*^-9"}]], "Input",
+ CellChangeTimes->{{3.567665612078327*^9, 3.567665616108727*^9}}],
+
+Cell[BoxData[
+ FractionBox["27", "1000000000"]], "Output",
+ CellChangeTimes->{3.567665617633584*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "=", 
+  RowBox[{"p", "/", "tau"}]}]], "Input",
+ CellChangeTimes->{{3.567665609245678*^9, 3.567665610410995*^9}}],
+
+Cell[BoxData["6.292497625830959`*^-20"], "Output",
+ CellChangeTimes->{{3.56766561080408*^9, 3.567665618980447*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a", "=", 
+  RowBox[{"f", "/", "m"}]}]], "Input",
+ CellChangeTimes->{{3.567665661391938*^9, 3.567665665148222*^9}}],
+
+Cell[BoxData["435708.1862505858`"], "Output",
+ CellChangeTimes->{3.567665665587422*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ag", "=", "9.81"}]], "Input",
+ CellChangeTimes->{{3.567665794585568*^9, 3.5676657955406857`*^9}}],
+
+Cell[BoxData["9.81`"], "Output",
+ CellChangeTimes->{3.567665795930972*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fg", "=", 
+  RowBox[{"m", "*", "ag"}]}]], "Input",
+ CellChangeTimes->{{3.567665732528961*^9, 3.56766573562201*^9}, {
+  3.567665791846517*^9, 3.5676657984852448`*^9}}],
+
+Cell[BoxData["1.4167601999999999`*^-24"], "Output",
+ CellChangeTimes->{
+  3.567665736755213*^9, {3.567665792443183*^9, 3.567665798915133*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"5", "/", "3.0*^8"}]], "Input",
+ CellChangeTimes->{{3.567665980621729*^9, 3.567665996111601*^9}}],
+
+Cell[BoxData["1.6666666666666667`*^-8"], "Output",
+ CellChangeTimes->{{3.567665989474167*^9, 3.567665996472898*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "/", "0.045"}]], "Input",
+ CellChangeTimes->{{3.567666022387195*^9, 3.567666024207959*^9}}],
+
+Cell[BoxData["3.7037037037037036`*^-7"], "Output",
+ CellChangeTimes->{3.567666024705325*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{171, Automatic}, {Automatic, 91}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 136, 2, 32, "Input"],
+Cell[718, 26, 82, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[837, 32, 122, 3, 32, "Input"],
+Cell[962, 37, 81, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1080, 43, 126, 2, 32, "Input"],
+Cell[1209, 47, 100, 2, 49, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1346, 54, 169, 4, 32, "Input"],
+Cell[1518, 60, 92, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1647, 66, 122, 2, 32, "Input"],
+Cell[1772, 70, 100, 2, 49, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1909, 77, 140, 3, 32, "Input"],
+Cell[2052, 82, 115, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2204, 88, 138, 3, 32, "Input"],
+Cell[2345, 93, 87, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2469, 99, 121, 2, 32, "Input"],
+Cell[2593, 103, 74, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2704, 109, 190, 4, 32, "Input"],
+Cell[2897, 115, 142, 2, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3076, 122, 120, 2, 32, "Input"],
+Cell[3199, 126, 116, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3352, 132, 119, 2, 32, "Input"],
+Cell[3474, 136, 92, 1, 34, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
