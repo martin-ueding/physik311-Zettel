@@ -1,0 +1,370 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\documentclass[11pt, ngerman]{article}
+
+\usepackage[a4paper, left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[activate]{pdfcprot}
+\usepackage[cdot, squaren]{SIunits}
+\usepackage[iso]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{babel}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+
+\usepackage[charter]{mathdesign}
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+
+\hypersetup{
+	breaklinks=false,
+	citecolor=darkgreen,
+	colorlinks=true,
+	linkcolor=black,
+	menucolor=black,
+	urlcolor=darkblue,
+}
+
+\setlength{\columnsep}{2cm}
+
+\DeclareMathOperator{\arcsinh}{arsinh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\asinh}{arsinh}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\dalambert}{\mathop{{}\Box}\nolimits}
+\newcommand{\divergence}[1]{\inner{\vnabla}{#1}}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\emesswert}{\del{\messwert \pm \messwert}}
+\newcommand{\e}[1]{\cdot 10^{#1}}
+\newcommand{\fehlt}{\textcolor{red}{Hier fehlen noch Inhalte.}}
+\newcommand{\half}{\frac 12}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\inner}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\laplace}{\mathop{{}\bigtriangleup}\nolimits}
+\newcommand{\messwert}{\textcolor{blue}{\square}}
+\newcommand{\punkte}{\textcolor{white}{xxxxx}}
+\newcommand{\tens}[1]{\boldsymbol{#1}}
+\newcommand{\vnabla}{\vec \nabla}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3}
+\newcommand{\theuebung}{1}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding}}
+\fancyfoot[R]{\footnotesize{Seite \thepage}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Lichtdruck                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lichtdruck}
+
+\subsection{Druck auf schwarze Fläche}
+
+Bei einer Wellenlänge $\lambda$ hat jedes Photon die Frequenz $f := \frac c
+\lambda$ und somit Energie $W := h f$. Bei einer Intensität $I := P/A$ gibt es
+pro Fläche $A$ eine Leistung $P$, was $\dot n := P / W$ Photonen entspricht.
+Jedes Photon hat den Impuls $p := \frac{hf}{c}$, der bei der Absorption
+komplett übertragen wird. Generell gilt $\dot p = F$. Somit gilt für den Druck:
+\[
+	\frac FA = \frac{\dot n h f}{A c} = \frac{P h f}{A W c} = \frac{P}{A c} = \frac{I}{c}
+\]
+
+Bei einer Intensität von $I = \unit{1}{\milli \watt \per \centi \meter
+\squared}$ ist der Druck: $\unit{3.33 \e{-8}}{\pascal}$
+
+\subsection{Beschleunigung auf Rubidiumatom}
+
+Die Fläche, auf die das Licht wirkt, ist:
+\[ \sigma = \frac{\lambda^2}{2 \pi} = \unit{9.6\e{-14}}{\meter \squared} \]
+
+Somit ist die Beschleunigung auf die Masse von $m := \unit{87 \cdot 1.6\e{-27}}{\kilogram}$:
+\[ a = \frac Fm = \frac{\sigma I}{cm} = \unit{2.32\e4}{\meter \per \second \squared} \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Fermat'sches Prinzip                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{fermatsches Prinzip}
+
+Es soll das Brechungsgesetz hergeleitet werden:
+\[ \frac{\sin\del{\theta_1}}{\sin\del{\theta_2}} = \frac{n_2}{n_1} \]
+
+Das Licht breitet sich innerhalb des Mediums um $n$ langsamer aus, als im Vakuum.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw (-2, 0) -- (2, 0) node[right] {Mediumsgrenze};
+		\draw[dashed] (0, -2) -- (0, 2) node[right] {optische Achse};
+		\draw[thick, <-] (0, 0) -- (-1, 1) node[left] {$P_1$};
+		\draw[thick, ->] (0, 0) -- ++(-30:2) node[right] {$P_2$};
+		\draw (90:1) arc (90:135:1) node[label=90:$\theta_1$] {};
+		\draw (-30:1) arc (330:270:1) node[below right] {$\theta_2$};
+		\draw[|-|] (-1, 2.2) -- +(1, 0) node[midway, above] {$A$};
+		\draw[|-|] (0, -2.2) -- +(1.7321, 0) node[midway, below] {$\del{1-A}$};
+		\draw[|-|] (-1, -3) -- +(2.7321, 0) node[midway, below] {$1$};
+		\draw[|-|] (-2.2, 0) -- +(0, 1) node[midway, left] {$1$};
+		\draw[|-|] (-2.2, 0) -- +(0, -1) node[midway, left] {$1$};
+	\end{tikzpicture}
+	\caption{Skizze zur Lichtbrechung}
+	\label{fig:Brechung}
+\end{figure}
+
+Angenommen, das Licht beginnt im Punkt $P_1(0, 1)$ und bewegt sich zum Punkt
+$P_2(1, -1)$. Das Medium wird im Punkt $(A, 0)$ gewechselt. (Siehe Abbildung
+\ref{fig:Brechung}.) Somit ist die Strecke, die das Licht zurücklegen muss:
+\[ \sqrt{1 + A^2} + \sqrt{(1-A)^2 + 1^2} \]
+
+Interessant ist allerdings die Zeit, die das Licht braucht:
+\[ t := \frac 1{n_1 c} \sqrt{1 + A^2} + \frac 1{n_2 c} \sqrt{(1-A)^2 + 1} \]
+
+Ich kann $A$ und $(1-A)$ auch durch den Sinus ausdrücken:
+\[
+	\sin\del{\theta_1} = \frac{A}{\sqrt{1 + A^2}}
+	, \quad
+	\sin\del{\theta_2} = \frac{1 - A}{\sqrt{1 + (1-A)^2}}
+\]
+
+Da eine extremale Zeit gefunden werden soll, leite ich nach $A$ ab und setze
+gleich $0$:
+%
+\begin{align*}
+\dpd t A &= 0 \\
+\frac{2A}{2 n_1 c \sqrt{1+A^2}} - \frac{2(1-A)}{2 n_2 c \sqrt{(1-A^2)+1}} &= 0 \\
+\frac{A}{n_1 \sqrt{1+A^2}} &= \frac{(1-A)}{n_2 \sqrt{(1-A^2)+1}} \\
+\frac{n_1}{n_2} &= \frac{\frac{(1-A)}{\sqrt{(1-A^2)+1}}}{\frac{A}{\sqrt{1+A^2}}} \\
+\intertext{Nun kann ich die Winkel einsetzen.}
+\frac{n_1}{n_2} &= \frac{\sin\del{\theta_2}}{\sin\del{\theta_1}}
+\end{align*}
+
+Es ist anschaulich klar, dass dieses Extremum ein Minimum ist. Somit ist die
+letzte Zeile die gesuchte Relation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     zur Elektrodynamik an Grenzflächen                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{zur Elektrodynamik an Grenzflächen}
+
+Es gilt, dass die Tangentialkomponenten von $\vec E$ und $\vec H$, und die
+Normalkomponenten von $\vec B$ und $\vec D$ stetig sind.
+
+Es soll wahrscheinlich gezeigt werden, dass keine Feldstärke verloren geht. In
+der nächsten Aufgabe benötige ich die Relation $n_1 \del{E_e^2 - E_r^2}
+\cos\del{\theta_i} = n_2 E_g^2 \cos\del{\theta_t}$, die ich hier wahrscheinlich
+herleiten soll.
+
+Die Energie $W$ einer Welle ist proportional zu $\sqrt{\epsilon} E^2$, wobei $n =
+\sqrt{\epsilon}$ gilt. Da an der Grenzfläche keine freien Ladungen sind, die
+Energie aufnehmen könnten, muss die Energie erhalten sein. Und zwar die Energie
+des einfallenden Strahls abzüglich des reflektierten Strahls muss die Energie sein, die in das Medium eintritt. Somit muss gelten:
+\[ W_e - W_r = W_d \]
+
+Nun betrachte ich hier nur die Normalkomponente, so dass ich nur einen Anteil der Energie betrachten muss. Diesen Anteil liefert mir $\cos\del{\theta_i}$ und $\cos\del{\theta_t}$. Somit kann ich die Energien für die Wellen einsetzen:
+\[
+	\sqrt{\epsilon_1} \del{E_e^2 - E_r^2} \cos\del{\theta_i} = \sqrt{\epsilon_2} E_g^2 \cos\del{\theta_t}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          Fresnel'sche Gleichungen                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{fresnelsche Gleichungen}
+
+Es geht keine Energie an der Grenzfläche verloren. Also muss die Energie, die
+in dem einfallenden ($e$), dem reflektierten ($r$) und gebrochene ($d$)
+Strahl steckt, erhalten bleiben. Die Energie einer Welle ist proportional zu
+$\sqrt{\epsilon} E^2 = n E^2$. Die Normalkomponente hängt von den Ein- und
+Ausfallswinkeln $\theta_i$ beziehungsweise $\theta_t$ wie $\cos(\theta_i)$ und
+$\cos(\theta_t)$ ab. Also gilt:
+%
+\begin{align*}
+	n_1 \del{E_e^2 - E_r^2} \cos\del{\theta_i} &= n_2 E_g^2 \cos\del{\theta_t} \\
+	%
+	\intertext{
+		Die Parallelkomponente des elektrischen Feldes ist (in der Summe)
+		erhalten, es muss gelten: $E_e + E_r = E_g$. Nun teile ich die
+		Gleichung durch die neue Relation und erhalte:
+	}
+	%
+	n_1 \del{E_e - E_r} \cos\del{\theta_i} &= n_2 E_g \cos\del{\theta_t} \\
+	%
+	\intertext{
+		Das Brechungsgesetz besagt $n_2 / n_1 = \sin(\alpha) / \sin(\beta)$.
+		Dies kann ich umformen zu: $\sin(\beta) n_2 = n_1 \sin(\alpha)$. Ich
+		teile die Gleichung durch die neue Relation und vertausche dann Sinus
+		und Kosinus, um sie aus dem Nenner zu entfernen.
+	}
+	%
+	\del{E_e - E_r} \sin\del{\theta_t} \cos\del{\theta_i} &= E_g
+	\sin\del{\theta_i} \cos\del{\theta_t} \\
+	%
+	\intertext{
+		Ich setze für $E_g$ die Summe $E_e + E_r$ ein.
+	}
+	%
+	\del{E_e - E_r} \sin\del{\theta_t} \cos\del{\theta_i} &= \del{E_e + E_r}
+	\sin\del{\theta_i} \cos\del{\theta_t} \\
+	%
+	\intertext{
+		Das ganze forme ich jetzt nach $E_r$ um. Dabei benutze ich auch noch
+		das Additionstheorem des Sinus.
+	}
+	%
+	E_r &= - E_e \frac{\sin\del{\theta_i - \theta_t}}{\sin\del{\theta_i +
+	\theta_t}}
+	%
+	\intertext{
+		Dieses Ergebnis kann ich etwas früher einsetzen um $E_r$ zu eliminieren
+		und erhalte eine Gleichung mit $E_e$ und $E_g$ für die Welle, die in
+		das Medium eindringt:
+	}
+	%
+	E_g &= E_e \frac{2 \sin\del{\theta_t} \cos\del{\theta_i}}{\sin\del{\theta_i +
+	\theta_t}}
+\end{align*}
+
+Diese Herleitung stammt, bis hier, größtenteils aus \cite[Abschnitt
+11.2.4]{meschede-gerthsen_24}.
+
+Nun kann ich die beiden erhaltenen Formeln noch durch $E_e$ teilen und erhalte
+die gesuchten Faktoren:
+\[
+	r_\perp = - \frac{\sin\del{\theta_i - \theta_t}}{\sin\del{\theta_i +
+	\theta_t}}
+	, \quad
+	t_\perp = \frac{2 \sin\del{\theta_t} \cos\del{\theta_i}}{\sin\del{\theta_i +
+	\theta_t}}
+\]
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.3\linewidth}
+		\centering
+		\begin{tikzpicture}[scale=2, samples=100]
+			\draw[dotted] (0, -1) grid (1.5, 1);
+			\draw[thin, ->] (0, 0) -- ++(1.5, 0) node[right] {$\theta_i$};
+			\draw[thin, ->] (0, -1) -- ++(0, 2);
+
+			\draw[dashed] (0.02, 1) -- ++(0, -2);
+
+			\foreach \x in {1}
+			\draw (0, -1) ++(\x, 1pt) -- ++(0, -2pt) node[anchor=north] {$\unit\x\radian$};
+
+			\foreach \y in {-1, 0, 1}
+			\draw (1pt, \y) -- +(-2pt, 0) node[anchor=east] {$\y$};
+
+			\draw (1, 0) node[above] {$t_\perp$};
+			\draw (1, -1) node[above] {$r_\perp$};
+
+			\clip (0, -1) rectangle (3, 1);
+
+			\draw[thick, domain=0:1.5] plot (\x, {
+				- sin(180 * (\x - 0.02) / 3.141) / sin(180 * (\x + 0.02) / 3.141)
+			});
+			\draw[thick, domain=0:1.5] plot (\x, {
+				2 * sin(180 * 0.02 / 3.141) * cos(180 * \x / 3.141) / sin(180 * (\x + 0.02) / 3.141)
+			});
+		\end{tikzpicture}
+		\caption{$\theta_t = \unit{0.02}\radian$}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\centering
+		\begin{tikzpicture}[scale=2, samples=100]
+			\draw[dotted] (0, -1) grid (1.5, 1);
+			\draw[thin, ->] (0, 0) -- ++(1.5, 0) node[right] {$\theta_i$};
+			\draw[thin, ->] (0, -1) -- ++(0, 2);
+
+			\draw[dashed] (0.10, 1) -- ++(0, -2);
+
+			\foreach \x in {1}
+			\draw (0, -1) ++(\x, 1pt) -- ++(0, -2pt) node[anchor=north] {$\unit\x\radian$};
+
+			\foreach \y in {-1, 0, 1}
+			\draw (1pt, \y) -- +(-2pt, 0) node[anchor=east] {$\y$};
+
+			\draw (1, 0.3) node[above] {$t_\perp$};
+			\draw (1, -0.7) node[above] {$r_\perp$};
+
+			\clip (0, -1) rectangle (3, 1);
+
+			\draw[thick, domain=0:1.5] plot (\x, {
+				- sin(180 * (\x - 0.10) / 3.141) / sin(180 * (\x + 0.10) / 3.141)
+			});
+			\draw[thick, domain=0:1.5] plot (\x, {
+				2 * sin(180 * 0.10 / 3.141) * cos(180 * \x / 3.141) / sin(180 * (\x + 0.10) / 3.141)
+			});
+		\end{tikzpicture}
+		\caption{$\theta_t = \unit{0.10}\radian$}
+	\end{minipage}
+	\begin{minipage}[b]{0.3\linewidth}
+		\centering
+		\begin{tikzpicture}[scale=2, samples=100]
+			\draw[dotted] (0, -1) grid (1.5, 1);
+			\draw[thin, ->] (0, 0) -- ++(1.5, 0) node[right] {$\theta_i$};
+			\draw[thin, ->] (0, -1) -- ++(0, 2);
+
+			\draw[dashed] (0.50, 1) -- ++(0, -2);
+
+			\foreach \x in {1}
+			\draw (0, -1) ++(\x, 1pt) -- ++(0, -2pt) node[anchor=north] {$\unit\x\radian$};
+
+			\foreach \y in {-1, 0, 1}
+			\draw (1pt, \y) -- +(-2pt, 0) node[anchor=east] {$\y$};
+
+			\draw (1, 0.1) node[above] {$t_\perp$};
+			\draw (1, -0.9) node[above] {$r_\perp$};
+
+			\clip (0, -1) rectangle (3, 1);
+
+			\draw[thick, domain=0:1.5] plot (\x, {
+				- sin(180 * (\x - 0.50) / 3.141) / sin(180 * (\x + 0.50) / 3.141)
+			});
+			\draw[thick, domain=0:1.5] plot (\x, {
+				2 * sin(180 * 0.50 / 3.141) * cos(180 * \x / 3.141) / sin(180 * (\x + 0.50) / 3.141)
+			});
+		\end{tikzpicture}
+		\caption{$\theta_t = \unit{0.50}\radian$}
+	\end{minipage}
+\end{figure}
+
+Der Brewsterwinkel ist erreicht, wenn $r_\perp = 0$ ist. Dies ist der Schnitt
+der $r_\perp$ Kurve mit der $\theta_i$-Achse. Der Grenzwinkel der Totalreflexion
+ist erreicht, wenn $t_\perp = 1$ ist. Der Winkel ist in allen Fällen $\theta_t$
+und ist mit einer gestrichelten Linie eingezeichnet.
+
+\bibliography{../../zentrale_BibTeX/Central}
+\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
