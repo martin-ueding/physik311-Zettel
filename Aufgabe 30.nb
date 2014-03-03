@@ -1,0 +1,325 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10343,        316]
+NotebookOptionsPosition[      9271,        274]
+NotebookOutlinePosition[      9609,        289]
+CellTagsIndexPosition[      9566,        286]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Die Notation f\[UDoubleDot]r $\\sin^2(x)$ funktioniert hier nicht. Das kommt \
+dann raus:\
+\>", "Text",
+ CellChangeTimes->{{3.563888174167143*^9, 3.5638881897659807`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sin", "^", 
+  RowBox[{"2", "[", "x", "]"}]}]], "Input",
+ CellChangeTimes->{{3.563888102078515*^9, 3.563888103438713*^9}}],
+
+Cell[BoxData[
+ SuperscriptBox["Sin", 
+  RowBox[{"2", "[", "x", "]"}]]], "Output",
+ CellChangeTimes->{3.563888103797858*^9, 3.563888215010016*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TraditionalForm", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.563888205527896*^9, 3.563888209188941*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  SuperscriptBox["Sin", 
+   RowBox[{"2", "\[InvisibleApplication]", 
+    RowBox[{"(", "x", ")"}]}]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.563888215144266*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "In ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " geht das dann so:"
+}], "Text",
+ CellChangeTimes->{{3.563888193486121*^9, 3.563888196685924*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]], "Input",
+ CellChangeTimes->{{3.563888199231945*^9, 3.563888200434319*^9}}],
+
+Cell[BoxData[
+ SuperscriptBox[
+  RowBox[{"Sin", "[", "x", "]"}], "2"]], "Output",
+ CellChangeTimes->{{3.563888200802145*^9, 3.563888217484256*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Das ist dann auch das, was du haben wolltest:\
+\>", "Text",
+ CellChangeTimes->{{3.563888270998399*^9, 3.5638882770852137`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TraditionalForm", "[", "%", "]"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SuperscriptBox["sin", "2"], "(", "x", ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.563888218794999*^9}]
+}, Open  ]],
+
+Cell["\<\
+Dann habe ich hier noch das ganze als Funktion definiert, dann wird das Plot \
+Kommand unten \[UDoubleDot]bersichtlicher.\
+\>", "Text",
+ CellChangeTimes->{{3.5638899342751827`*^9, 3.5638899532661552`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"a_", ",", "n_", ",", "k_", ",", "b_", ",", "theta_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", "/", 
+     RowBox[{"n", "^", "2"}]}], ")"}], 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"k", "*", "b"}], ")"}], "/", "2"}], ")"}], "*", 
+        RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "^", "2"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"k", "*", "a"}], ")"}], "/", "2"}], ")"}], "^", "2"}], "*", 
+       RowBox[{
+        RowBox[{"Sin", "[", "theta", "]"}], "^", "2"}]}], ")"}]}], ")"}], 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n", "*", "k", "*", "b"}], ")"}], "/", "2"}], "*", 
+         RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "^", "2"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Sin", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"k", "*", "a"}], ")"}], "/", "2"}], ")"}], "*", 
+          RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "^", "2"}], ")"}]}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"k", "*", 
+          RowBox[{"a", "/", "2"}]}], ")"}], "*", 
+        RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "^", "2"}], 
+     ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.563887951546672*^9, 3.563887987513864*^9}, {
+  3.563888091377021*^9, 3.5638881543861847`*^9}}],
+
+Cell["\<\
+Zur Kontrolle noch einmal die Funktion:\
+\>", "Text",
+ CellChangeTimes->{{3.563889956946576*^9, 3.563889961665593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "[", 
+  RowBox[{"a", ",", "n", ",", "k", ",", "b", ",", "theta"}], "]"}]], "Input",
+ CellChangeTimes->{{3.563888134701782*^9, 3.563888138430196*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"4", " ", 
+   SuperscriptBox[
+    RowBox[{"Csc", "[", "theta", "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{"Csc", "[", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "a", " ", "k", " ", 
+      RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "4"], " ", 
+   SuperscriptBox[
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "b", " ", "k", " ", 
+      RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "2"], " ", 
+   SuperscriptBox[
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "b", " ", "k", " ", "n", " ", 
+      RowBox[{"Sin", "[", "theta", "]"}]}], "]"}], "2"]}], 
+  RowBox[{
+   SuperscriptBox["a", "2"], " ", 
+   SuperscriptBox["k", "2"], " ", 
+   SuperscriptBox["n", "2"]}]]], "Output",
+ CellChangeTimes->{{3.5638881388035097`*^9, 3.563888156566827*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"a", ",", "n", ",", "k", ",", "b", ",", "theta"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "0", ",", "10"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"theta", ",", "0", ",", "Pi"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "0", ",", "20"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5638805438920193`*^9, 3.5638808395949326`*^9}, {
+   3.5638808697226553`*^9, 3.5638809202475457`*^9}, {3.5638809792899227`*^9, 
+   3.5638810733333015`*^9}, {3.5638813228235717`*^9, 
+   3.5638813252867126`*^9}, {3.5638815658784733`*^9, 
+   3.5638815926140027`*^9}, {3.563881632799301*^9, 3.563881640612748*^9}, 
+   3.5638816738406487`*^9, {3.5638817097257013`*^9, 3.5638817128238783`*^9}, 
+   3.5638817676210127`*^9, {3.5638820726594596`*^9, 3.5638820731464877`*^9}, 
+   3.563887957523263*^9, {3.563887991543188*^9, 3.5638879995886173`*^9}, {
+   3.5638880411076612`*^9, 3.563888074972362*^9}, {3.5638899720772047`*^9, 
+   3.563889977464572*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b$$ = 0.9, $CellContext`k$$ = 
+    5.800000000000001, $CellContext`n$$ = 3.12, $CellContext`theta$$ = 
+    0.6346017160251383, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`b$$], 0, 10}, {
+      Hold[$CellContext`n$$], 1, 6}, {
+      Hold[$CellContext`theta$$], 0, Pi}, {
+      Hold[$CellContext`k$$], 0, 20}}, Typeset`size$$ = {360., {111., 115.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`b$4980$$ = 0, $CellContext`n$4981$$ = 
+    0, $CellContext`theta$4982$$ = 0, $CellContext`k$4983$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b$$ = 0, $CellContext`k$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`theta$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`b$$, $CellContext`b$4980$$, 0], 
+        Hold[$CellContext`n$$, $CellContext`n$4981$$, 0], 
+        Hold[$CellContext`theta$$, $CellContext`theta$4982$$, 0], 
+        Hold[$CellContext`k$$, $CellContext`k$4983$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        $CellContext`f[$CellContext`a, $CellContext`n$$, $CellContext`k$$, \
+$CellContext`b$$, $CellContext`theta$$], {$CellContext`a, 0, 10}], 
+      "Specifications" :> {{$CellContext`b$$, 0, 10}, {$CellContext`n$$, 1, 
+         6}, {$CellContext`theta$$, 0, Pi}, {$CellContext`k$$, 0, 20}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {193., 198.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.563888048174474*^9, 3.563888075471076*^9}, {
+   3.563888133014696*^9, 3.563888158760079*^9}, 3.563889658410307*^9}]
+}, Open  ]]
+},
+WindowSize->{1192, 911},
+WindowMargins->{{Automatic, 37}, {39, Automatic}},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 181, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[763, 28, 145, 3, 30, "Input"],
+Cell[911, 33, 145, 3, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1093, 41, 134, 2, 30, "Input"],
+Cell[1230, 45, 195, 5, 44, "Output"]
+}, Open  ]],
+Cell[1440, 53, 172, 6, 30, "Text"],
+Cell[CellGroupData[{
+Cell[1637, 63, 145, 3, 30, "Input"],
+Cell[1785, 68, 147, 3, 30, "Output"]
+}, Open  ]],
+Cell[1947, 74, 137, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[2109, 81, 68, 1, 30, "Input"],
+Cell[2180, 84, 153, 4, 44, "Output"]
+}, Open  ]],
+Cell[2348, 91, 215, 4, 30, "Text"],
+Cell[2566, 97, 1784, 57, 50, "Input"],
+Cell[4353, 156, 129, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[4507, 163, 177, 3, 30, "Input"],
+Cell[4687, 168, 846, 24, 56, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5570, 197, 1288, 27, 69, "Input"],
+Cell[6861, 226, 2394, 45, 408, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

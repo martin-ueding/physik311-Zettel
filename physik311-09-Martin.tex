@@ -1,0 +1,307 @@
+% Copyright © 2012 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik311}
+\newcommand{\thegruppe}{Gruppe 3 -- Matthias Rehberger}
+\newcommand{\theuebung}{9}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{\footnotesize{\thegruppe}}
+\fancyfoot[L]{\footnotesize{Martin Ueding}}
+\fancyfoot[R]{\footnotesize{Seite \thepage\ / \pageref{LastPage}}}
+\fancyhead[L]{\themodul{} -- Übung \theuebung}
+
+\setcounter{section}{29}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe & \ref{1} & \ref{2} & \ref{3} & $\sum$   \\
+		\hline
+		Punkte & \punkte & \punkte & \punkte & \punkte
+	\end{tabular}
+\end{table}
+
+Es gibt zwei Aufgaben 30, die zweite Aufgabe 30 sollte wohl \ref 2, und die
+Aufgabe 31 eigentlich \ref 3 sein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          Beugung am Mehrfachspalt                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Beugung am Mehrfachspalt}
+\label 1
+
+\subsection{Verlauf der Funktion}
+
+Der Verlauf der Funktion ist in Abbildung \ref{fig:30a1} und \ref{fig:30a2}
+gezeigt. Für $b \ll a N$ kann der erste Term genähert werden und wird $1$. Dies
+sollte unendlich dünnen Spalten entsprechen. Für den zweiten Fall sind die
+Beugungsbilder der einzelnen Spalte zu erkennen, als auch die Maxima durch den
+Doppelspalt.
+
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{30a1.pdf}
+		\caption{$k = 300, b = 0.1, a = 3, N = 1$}
+		\label{fig:30a1}
+	\end{minipage}
+	\hspace{0.08\textwidth}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{30a2.pdf}
+		\caption{$k = 5, b = 1, a = 4, N = 6$}
+		\label{fig:30a2}
+	\end{minipage}
+\end{figure}
+
+\subsection{Maxima des Gitters}
+
+Die Beugung an den einzelnen Spalten erzeugt nur ein Hauptmaximum, weitere
+Hauptmaxima liegen aufgrund der unendlichen Spaltzahl im Einzelspalt unendlich
+weit auseinander.
+
+Es bleiben also die Maxima des Gitters selbst als Maxima. Ein Maximum tritt immer dann ein, wenn im letzten Term Zähler und Nenner gegen 0 gehen. Es muss also gelten:
+\[
+	\frac{ka}{2} \sin \Theta = n \pi
+	\iff
+	\Theta = \arcsin\del{\frac{2 n \pi}{ka}}
+\]
+
+Die Spaltzahl $N = 1000$ ist hier noch egal, die Spaltbreite $b = \unit{1500}{\nano\meter}$ auch. Der Abstand $a = \unit{6000}{\nano\meter}$ sowie die Wellenlänge $\lambda = \unit{500}{\nano\meter}$ sind entscheidend. Die Wellenzahl ist:
+\[
+	k = \frac{2 \pi}{\lambda}
+\]
+
+Dies setze ich ein:
+\[
+	\Theta = \arcsin\del{\frac{n \lambda}{a}}
+\]
+
+Dann setze ich $n = 0, 1, 2$ ein und erhalte:
+\begin{align*}
+	\Theta_0 &= \unit{0}{\rad} \\
+	\Theta_1 &= \unit{0.0834301}{\rad} \\
+	\Theta_2 &= \unit{0.167448}{\rad} \\
+\end{align*}
+
+\subsection{Minima}
+
+Für die Minima ist die Spaltanzahl jetzt wichtig. Minima entstehen, wenn einer
+der Zähler 0 wird, der Nenner allerdings nicht. Dabei kann nur der zweite
+Zähler alleine 0 werden. Denn der erste Zähler ist genau der zweite Nenner.
+\[
+	N \frac{ka}2 \sin \Theta = n \pi
+	\quad
+	\wedge
+	\quad
+	\frac{ka}2 \sin \Theta \neq m \pi
+\]
+
+\[
+	\Theta = \arcsin\del{\frac{n \lambda}{Na}}
+	\quad
+	\wedge
+	\quad
+	\frac nN \notin \mathbb Z
+\]
+
+Gesucht sind jetzt $n = 1, 1000 \pm 1, 2000 \pm 1$.
+\begin{align*}
+	\Theta_1' &= \unit{0}{\rad} \\
+\Theta_{999}' &= \unit{0.0835137}{\rad} \\
+\Theta_{1001}' &= \unit{0.0833465}{\rad} \\
+\Theta_{1999}' &= \unit{0.167364}{\rad} \\
+\Theta_{2001}' &= \unit{0.167533}{\rad} \\
+\end{align*}
+
+\subsection{Wellenlänge}
+
+In das 0. Maximum wird immer gebrochen, da ist wie Wellenlänge irrelevant. Für das erste Maximum setze ich an:
+\[
+	\Theta = \arcsin\del{\frac{\lambda'_1}{a}} = \unit{0.0833465}{\rad}
+\]
+
+Ich erhalte $\lambda'_1 = \unit{500.5}{\nano\meter}$. Analog erhalte ich für das zweite Maximum $\lambda'_2 = \unit{500.251}{\nano\meter}$.
+
+Somit sind die spektralen Auflösungen:
+\begin{gather*}
+	\frac{\Deltaup \lambda}{\lambda} = 0.001 \\
+	\frac{\Deltaup \lambda}{\lambda} = 0.0005021
+\end{gather*}
+
+Es gilt also:
+\[
+	\frac{\Deltaup \lambda}{\lambda} = \frac{1}{n N}
+\]
+
+\subsection{Reflexionsgitter}
+
+Bei einem Reflexionsgitter sind die Reflexstreifen ähnlich wie beim
+durchlassenden Gitter wieder Lichtquellen, die Kugelwellen ausstrahlen, da sie
+so klein sind. Die Geometrie hat dann zwar einen Knick, ist ansonsten ähnlich,
+sogar kongruent.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Stufengitter                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Stufengitter}
+\label 2
+
+\subsection{Lage der Extremstellen}
+
+Aus der Zeichnung in Abbildung \ref{fig:stufengitter} kann ich folgende
+Relation ablesen:
+\[
+	\frac d{\frac{\Deltaup s}2} = \cos\del{\frac\Theta 2}
+\]
+
+Dies stelle ich nach $\Deltaup s$ um und setze es gleich $n \lambda$ für die
+konstruktive Interferenz:
+\[
+	n \lambda = 2 d \sec\del{\frac \Theta 2}
+	\iff
+	\Theta_\text{max} = 2 \arccos\del{\frac{2d}{n\lambda}}
+\]
+
+Für das Minimum ähnlich:
+\[
+	\del{n + \half} \lambda = 2 d \sec\del{\frac \Theta 2}
+	\iff
+	\Theta_\text{min} = 2 \arccos\del{\frac{2d}{\del{n + \half}\lambda}}
+\]
+
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw (-5, 1) -- (0, 1) -- (0, -1) node[midway, left] {$d$} -- (5, -1);
+		\draw[->] (-1, 1) -- ++(60:4);
+		\draw[<-] (-1, 1) -- ++(120:4);
+		\draw[->] (2, -1) -- ++(60:6);
+		\draw[<-] (2, -1) -- ++(120:6);
+		\draw[dashed] (2, -1) -- ++(0, 2) -- ++(1, 0);
+		\draw (2, -1) ++(60:1) arc (60:90:1) node[above right] {$\frac \Theta 2$};
+		\draw[|-|] (2, -1) ++(-30:0.3) -- ++(60:2.31) node[midway, right] {$\half \Deltaup s$};
+	\end{tikzpicture}
+	\caption{Skizze zum Stufengitter}
+	\label{fig:stufengitter}
+\end{figure}
+
+Der wichtige Trick ist nun, dass bei das nullte Maximum nicht bei $n = 0$
+liegen kann. Dieses sollte bei $\Theta_\text{max} = \unit 0 \radian$ liegen,
+somit muss das Argument des $\arccos$ gleich $1$ sein:
+\[
+	1 = \frac{2d}{n \lambda}
+	\implies
+	n = 1000
+\]
+
+Also müssen die Ordnungszahlen $k = 0, 1, \ldots$ umgerechnet werden mit $n =
+1000 + k$.
+
+\subsection{Einsetzen, Nachbarn}
+
+Das 500. Maximum ist also dann das mit der Nummer $n = 1500$. Dies setze ich in
+$\Theta_\text{max}$ ein und erhalte:
+\[
+	\Theta_\text{max} = \unit{1.68214}\radian
+\]
+
+Die Minima erhalte durch Einsetzen von $n = 1499$ und $n = 1500$ in die Formel
+für die Minima:
+\[
+	\Theta_\text{min} = \unit{1.68273}\radian
+	,\quad
+	\Theta_\text{min}' = \unit{1.68154}\radian
+\]
+
+Ich setze das erste Minimum in die Formel für das Maximum ein und löse das
+ganze nach $\lambda$ auf:
+\[
+	\cos\del{\frac{\Theta_\text{min}}2} = \frac{2d}{n \lambda'}
+	\implies
+	\lambda' = \frac{3001}{4000000} \frac 1n
+\]
+
+Dort setze ich das gegebene $\lambda$ der Aufgabenstellung ein und erhalte für
+$n$:
+\[
+	n = 1500.5
+\]
+
+Da nur ganzzahlige $n$ erlaubt sind, muss ich runden. Für $n = 1501$ ist
+$\lambda' = \unit{499.833}{\nano\meter}$ und der Abstand $\abs{\lambda' -
+\lambda} = \unit{16.656}{\nano\meter}$ minimiert.
+
+\subsection{spektrale Auflösung}
+
+Damit kann ich die spektrale Auflösung bestimmen:
+\[
+	\frac{\Deltaup \lambda}{\lambda}
+	= \frac{16.656}{500}
+	= 0.033312
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     michelsonsches Sterninterferometer                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{michelsonsches Sterninterferometer}
+\label 3
+
+\subsection{Interferenzmuster für einen Stern}
+
+Der erste Stern liegt bei $\phi = 0$, so dass sich durch den vorderen Aufbau
+kein Gangunterschied ergibt. Vom vorherigen Zettel übernehme ich die Formel für
+die Intensität zweier Wellen im Doppelspalt. Dabei kann ich anscheinend
+$\theta$ als klein annehmen, wie in der Zeichnung gezeigt.
+\[
+	I =
+	I_0 \sin^2\del{\frac{b 2 \pi}{\lambda} \theta} \csc^2\del{\frac{b \pi}{\lambda} \theta}
+\]
+
+
+\subsection{Warum interferiert das Licht der Sterne nicht miteinander?}
+
+Das Licht der beiden Sterne interferiert nicht untereinander, weil das Licht
+kohärent sind, die Sterne sind thermische Strahler.
+
+\subsection{Beide Sterne}
+
+Bei $h \to 0$ entspricht der Versuch dem normalen Doppelspalt, daher ist nur
+die Wellenlänge $\lambda$ entscheidend. Da aus den Spalten Kugelwellen
+ausgesendet werden, spielt die ursprüngliche Richtung keine Rolle.
+
+Für $h \neq 0$ bekommt der zweite Stern einen zusätzlichen Gangunterschied von
+$h \phi$ hinzu. Wenn nun bei $h = \unit 5 \meter$ kein Interferenzmuster mehr
+zu erkennen ist, dann liegen die Maxima des einen Sterns in den Minima des
+anderen Sterns. Dazu muss $h \phi k = \pi$, also $h \phi 2 \pi / \lambda = \pi$ gelten. Ich stelle um und erhalte:
+\[
+	\phi = \frac{\lambda}{2 h} = \unit{50}{\nano\rad}
+\]
+
+%\bibliography{../../zentrale_BibTeX/Central}
+%\bibliographystyle{plain}
+
+\end{document}
+
+% vim: spell spelllang=de
